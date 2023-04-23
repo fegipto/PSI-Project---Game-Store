@@ -15,7 +15,7 @@ Na pasta backend introduzir o comando no powershell `$ENV:DEBUG = "psi031:*"; np
 
 https://cloud.mongodb.com/v2/6423c74fcfabca1c72c367eb#/clusters
 
-##AppServer
+## AppServer
 
 O appserver reinicia todos os dias, por isso os processos que lançarem da forma indicada ontem terão de ser lançados todos os dias. Se quiserem evitar isso, fica aqui a descrição de uma terceira maneira de manter os servidores a correr.
 
