@@ -1,7 +1,9 @@
 const User = require("../models/User");
+const Item = require("../models/Item");
 const UserController = require("../controllers/userController");
 
 exports.init = (req, res) => {
+    createItems();
     createUsers();
     res.send();
 };
@@ -10,9 +12,10 @@ mongoose.set('strictQuery', false);
 const mongoDB = "mongodb+srv://tiagomg7fernandes:mBTQcpcGgtJeLuDj@locallibrary.kxp3fjt.mongodb.net/my_database?retryWrites=true&w=majority";
 
 users = []
+items = []
 
-async function userCreate(id, name) {
-    userdetail = { id: id, name:name};
+async function userCreate(id, name, lists, library, followers, following) {
+    userdetail = { id: id, name:name, lists:lists, library:library, followers:followers, following:following};
     const user = new User(userdetail);
     users.push(user);
     await user.save();
@@ -21,11 +24,75 @@ async function userCreate(id, name) {
 
 async function createUsers() {
     await Promise.all([
-        userCreate(1,"Becky"),
-        userCreate(2,"Tom"),
-        userCreate(3,"Huckleberry"),
-        userCreate(4,"Amy"),
+        //userCreate(1,"Becky"),
+        //userCreate(2,"Tom"),
+        //userCreate(3,"Huckleberry"),
+        userCreate(1,
+            "Becky", 
+            [{name : "lista1", values: [await Item.where('id', 1).findOne(), await Item.where('id', 2).findOne()]},
+                      {name:"lista2", values: [await Item.where('id', 3).findOne(), await Item.where('id', 2).findOne()]}],
+            [await Item.where('id', 1).findOne(), await Item.where('id', 2).findOne()],
+            [],
+            []
+            ),
+        userCreate(2,
+            "Tom", 
+            [{"lista1": [await Item.where('id', 1).findOne(), await Item.where('id', 2).findOne()]}],
+            [await Item.where('id', 1).findOne(), await Item.where('id', 2).findOne()],
+            [await User.where('id', 1).findOne()],
+            [await User.where('id', 1).findOne()],
+            ),
+        userCreate(3,
+            "Huckleberry", 
+            [{"lista1": [await Item.where('id', 1).findOne(), await Item.where('id', 2).findOne()]}],
+            [await Item.where('id', 1).findOne(), await Item.where('id', 2).findOne()],
+            [await User.where('id', 1).findOne(), await User.where('id', 2).findOne()],
+            [await User.where('id', 1).findOne(), await User.where('id', 2).findOne()],
+            ),
+        userCreate(4,
+            "Amy", 
+            [{"lista1": [await Item.where('id', 1).findOne(), await Item.where('id', 2).findOne()]}],
+            [await Item.where('id', 1).findOne(), await Item.where('id', 2).findOne()],
+            [await User.where('id', 3).findOne(), await User.where('id', 2).findOne()],
+            [await User.where('id', 3).findOne(), await User.where('id', 2).findOne()],
+            ),
     ]);
 }
+
+async function itemCreate(id, name, description) {
+    itemdetail = { id: id, name:name};
+    const item = new Item(itemdetail);
+    items.push(item);
+    await item.save();
+    console.log(`Added item: ${name}`);
+}
+
+async function createItems() {
+    await Promise.all([
+        itemCreate(1,"A"),
+        itemCreate(2,"B"),
+        itemCreate(3,"C"),
+        itemCreate(4,"D"),
+    ]);
+}
+
+async function getItemId(id) {
+    const query = Item.where('id', id);
+    const result = await query.findOne();
+    return result;
+    }
+async  function getUserId(id) {
+    const query = User.where('id', id);
+    const result = await query.findOne();
+    return result;
+}
+
+async function getItems() {
+    const items= await Item.find()
+    return items;
+}
+
+
+
 
 
