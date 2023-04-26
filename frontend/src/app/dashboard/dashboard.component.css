@@ -4,39 +4,41 @@ h2 {
     text-align: center;
   }
   
-  .heroes-menu {
+  .dashboard-menu {
     padding: 0;
-    margin: auto;
-    max-width: 1000px;
-  
-    /* flexbox */
+    max-width: 1500px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-    align-content: flex-start;
     align-items: flex-start;
+    padding: 10px;
   }
+ 
   
   a {
+    display: inline; 
     background-color: #3f525c;
     border-radius: 2px;
-    padding: 1rem;
-    font-size: 1.2rem;
+    padding: 3.0rem;
+    font-size: 1.5rem;
     text-decoration: none;
     display: inline-block;
     color: #fff;
     text-align: center;
     width: 100%;
-    min-width: 70px;
-    margin: .5rem auto;
+    min-width: 270px;
+    min-height: 170px;
     box-sizing: border-box;
-  
-    /* flexbox */
-    order: 0;
-    flex: 0 1 auto;
-    align-self: auto;
+
   }
+
+  div {
+    height: 100px;
+    line-height: 150px;
+    text-align: center;
+  }
+ 
   
   @media (min-width: 600px) {
     a {
@@ -47,9 +49,4 @@ h2 {
   
   a:hover {
     background-color: #000;
-  }
-
-  .container {
-    display: grid;
-    grid-template-rows: repeat(3, 33.33%);
   }

@@ -9,7 +9,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ListsComponent } from './lists/lists.component';
 import { LibraryComponent } from './library/library.component';
-import { FollowComponent } from './follow/follow.component';
+import { FollowingComponent } from './following/following.component';
+import { FollowersComponent } from './followers/followers.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FollowComponent } from './follow/follow.component';
     DashboardComponent,
     ListsComponent,
     LibraryComponent,
-    FollowComponent,
+    FollowingComponent,
+    FollowersComponent,
   ],
   imports: [
     BrowserModule,

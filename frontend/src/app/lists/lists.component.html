@@ -1,1 +1,13 @@
-<p>lists works!</p>
+<h2>Lists</h2>
+<div class="list-menu">
+
+  <h3 *ngFor="let list of listItems, let i = index"  
+      routerLink="/users/${getIdLogin()}/lists"> 
+      {{list.name}}
+      <p *ngFor="let item of listItems[i].values">
+      {{item.name}}
+      </p>
+    </h3>
+
+</div>
+<div> <button type="button" (click)="goBack()">go back</button></div>

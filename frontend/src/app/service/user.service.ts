@@ -4,6 +4,8 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { MessageService } from '../service/message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../user';
+import { ListItems } from '../lists';
+import { Item } from '../item';
 
 
 @Injectable({
@@ -12,6 +14,7 @@ import { User } from '../user';
 export class UserService {
 
   uri = "http://localhost:3000";
+  user_id = 2; //TODO LOGIN
 
   constructor(
     private http: HttpClient,
@@ -22,21 +25,43 @@ export class UserService {
      // URL to web apis
      private usersUrl = '/users';
 
-
-  getUsers(): Observable<User[]> {
-      return this.http.get<User[]>(`${this.uri}/users`)
+  getLists(): Observable<ListItems[]>{
+    return this.http.get<ListItems[]>(`${this.uri}/users/${this.user_id}/lists`)
         .pipe(
-          catchError(this.handleError<User[]>('getusers', []))
+          catchError(this.handleError<ListItems[]>('getLists', []))
         );
-    }
-
-  getUser(id: number): Observable<User> {
-    const url = `${this.uri}/user/${id}`;
-    return this.http.get<User>(url).pipe(
-      tap(_ => this.log(`fetched User id=${id}`)),
-      catchError(this.handleError<User>(`getUser id=${id}`))
-    );
   }
+
+  getLibrary(): Observable<Item[]>{
+    return this.http.get<Item[]>(`${this.uri}/users/${this.user_id}/library`)
+        .pipe(
+          catchError(this.handleError<Item[]>('getLibrary', []))
+        );
+  }
+
+  getFollowers(): Observable<User[]>{
+    return this.http.get<User[]>(`${this.uri}/users/${this.user_id}/followers`)
+        .pipe(
+          catchError(this.handleError<User[]>('getFollowers', []))
+        );
+  } 
+
+  getFollowing(): Observable<User[]>{
+    return this.http.get<User[]>(`${this.uri}/users/${this.user_id}/following`)
+        .pipe(
+          catchError(this.handleError<User[]>('getFollowing', []))
+        );
+  } 
+
+  //Temporário para testar
+  getIdLogin(): Number{
+    return this.user_id;
+  } 
+
+
+
+
+
   /** Log a UserService message with the MessageService */
   private log(message: string) {
     this.messageService.add(`UserService: ${message}`);
@@ -62,6 +87,23 @@ private handleError<T>(operation = 'operation', result?: T) {
     // Let the app keep running by returning an empty result.
     return of(result as T);
   };
+}
+
+//Métodos que não são usados mas que podem ser úteis:
+
+getUsers(): Observable<User[]> {
+  return this.http.get<User[]>(`${this.uri}/users`)
+    .pipe(
+      catchError(this.handleError<User[]>('getusers', []))
+    );
+}
+
+getUser(id: number): Observable<User> {
+  const url = `${this.uri}/user/${id}`;
+  return this.http.get<User>(url).pipe(
+    tap(_ => this.log(`fetched User id=${id}`)),
+    catchError(this.handleError<User>(`getUser id=${id}`))
+  );
 }
 /** PUT: update the User on the server */
 updateUser(User: User): Observable<any> {
