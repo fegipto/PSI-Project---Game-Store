@@ -9,4 +9,7 @@
         </b>
       </li>
     </ul>
+    <p class="error-message" *ngIf="searchBox.value && (items$ | async)?.length === 0">
+      No items found.
+    </p>
   </div>

@@ -39,4 +39,10 @@
     font-weight: bold;
     color: white;
   }
+
+  .error-message {
+    color: lightgray;
+    font-size: 14px;
+    margin-top: 5px;
+  }
   
