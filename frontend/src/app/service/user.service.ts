@@ -16,14 +16,26 @@ export class UserService {
   uri = "http://localhost:3000";
   user_id = 2; //TODO LOGIN
 
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+
   constructor(
     private http: HttpClient,
     private messageService: MessageService,
-    ) {
+  ) {}
+  
+  // URL to web apis
+  private usersUrl = 'api/users';
+  private userUrl = 'api/user';
 
-     }
-     // URL to web apis
-     private usersUrl = '/users';
+  /** POST: add a new hero to the server */
+  addUser(user: User): Observable<User> {
+    return this.http.post<User>(this.userUrl, user, this.httpOptions).pipe(
+      tap((newUser: User) => this.log(`added user w/ id=${newUser._id}`)),
+      catchError(this.handleError<User>('addUser'))
+    );
+  }
 
   getLists(): Observable<ListItems[]>{
     return this.http.get<ListItems[]>(`${this.uri}/users/${this.user_id}/lists`)
@@ -57,10 +69,6 @@ export class UserService {
   getIdLogin(): Number{
     return this.user_id;
   } 
-
-
-
-
 
   /** Log a UserService message with the MessageService */
   private log(message: string) {
@@ -105,6 +113,7 @@ getUser(id: number): Observable<User> {
     catchError(this.handleError<User>(`getUser id=${id}`))
   );
 }
+
 /** PUT: update the User on the server */
 updateUser(User: User): Observable<any> {
   return this.http.put(`${this.uri}/User/${User.id}`, User, this.httpOptions).pipe(
@@ -112,10 +121,6 @@ updateUser(User: User): Observable<any> {
     catchError(this.handleError<any>('updateUser'))
   );
 }
-httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
-
 
 /** DELETE: delete the User from the server */
 deleteUser(id: number): Observable<User> {
@@ -139,14 +144,5 @@ searchusers(term: string): Observable<User[]> {
        this.log(`no users matching "${term}"`)),
     catchError(this.handleError<User[]>('searchusers', []))
   );
-}
-
-/** POST: add a new User to the server */
-addUser(User: User): Observable<User> {
-  return this.http.post<User>(this.usersUrl, User, this.httpOptions).pipe(
-    tap((newUser: User) => this.log(`added User w/ id=${newUser.id}`)),
-    catchError(this.handleError<User>('addUser'))
-  );
-}
-  
+}  
 }
