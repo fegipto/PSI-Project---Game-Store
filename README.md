@@ -5,7 +5,7 @@ Projeto relativo à cadeira de PSI de 2022/2023
 
 ## Frontend Server
 
-Na pasta frontend introduzir o comando no terminal `ng serve--open` para iniciar o frontend server (i.e., Angular). O url do servidor é `http://localhost:4200/`. 
+Na pasta frontend introduzir o comando no terminal `ng serve --open` para iniciar o frontend server (i.e., Angular). O url do servidor é `http://localhost:4200/`. 
 
 ## Backend Server
 
