@@ -72,10 +72,10 @@ async function itemCreate(id, name, description) {
 
 async function createItems() {
     await Promise.all([
-        itemCreate(1,"A"),
-        itemCreate(2,"B"),
-        itemCreate(3,"C"),
-        itemCreate(4,"D"),
+        itemCreate(1,"Car"),
+        itemCreate(2,"Phone"),
+        itemCreate(3,"Ball"),
+        itemCreate(4,"Dice"),
     ]);
 }
 

@@ -56,13 +56,14 @@ searchItems(term: string): Observable<Item[]> {
     // if not search term, return empty User array.
     return of([]);
   }
-  return this.http.get<Item[]>(`${this.uri}/items/?name=${term}`).pipe(
+  return this.http.get<Item[]>(`${this.uri}/items/${term}`).pipe(
     tap(x => x.length ?
        this.log(`found Items matching "${term}"`) :
        this.log(`no items matching "${term}"`)),
     catchError(this.handleError<Item[]>('searchitems', []))
   );
 }
+
 
 getItem(id: Number): Observable<Item>{
   return this.http.get<Item>(`${this.uri}/items/${id}`)

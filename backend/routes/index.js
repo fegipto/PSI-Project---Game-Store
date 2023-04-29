@@ -20,6 +20,6 @@ router.get("/users/:id/followers", userController.followers_list);
 
 router.get("/items/:name", itemController.find_match_items);
 
-router.get("/items/:id", itemController.find_item);
+router.get("/itemsdetail/:id", itemController.find_Item);
 
 module.exports = router;
