@@ -11,6 +11,9 @@ import { ListsComponent } from './lists/lists.component';
 import { LibraryComponent } from './library/library.component';
 import { FollowingComponent } from './following/following.component';
 import { FollowersComponent } from './followers/followers.component';
+import { ItemService } from './service/item.service';
+import { ItemsSearchComponent } from './items-search/items-search.component';
+import { ItemDetailComponent } from './item-detail/item-detail.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,8 @@ import { FollowersComponent } from './followers/followers.component';
     LibraryComponent,
     FollowingComponent,
     FollowersComponent,
+    ItemsSearchComponent,
+    ItemDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,7 @@ import { FollowersComponent } from './followers/followers.component';
       InMemoryDataService, { dataEncapsulation: false }
     )*/
   ],
-  providers: [UserService],
+  providers: [UserService, ItemService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

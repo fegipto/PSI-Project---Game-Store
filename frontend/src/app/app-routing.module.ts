@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ItemDetailComponent } from './item-detail/item-detail.component';
 import { ListsComponent } from './lists/lists.component';
 import { FollowersComponent } from './followers/followers.component';
 import { FollowingComponent } from './following/following.component';
 import { LibraryComponent } from './library/library.component';
+import { ItemsSearchComponent } from './items-search/items-search.component';
 
 
 const routes: Routes = [
@@ -16,6 +18,8 @@ const routes: Routes = [
   { path: 'user-profile/:id/followers', component: FollowersComponent },
   { path: 'user-profile/:id/following', component: FollowingComponent },
   { path: 'user-profile/:id/library', component: LibraryComponent },
+  { path: 'items/:name', component: ItemsSearchComponent},
+  { path: 'items/:id', component: ItemDetailComponent},
 ];
 
 @NgModule({

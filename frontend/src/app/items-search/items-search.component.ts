@@ -39,6 +39,11 @@ export class ItemsSearchComponent implements OnInit {
         switchMap((term: string) => this.itemService.searchItems(term)),
       );
     }
+
+  //Go to the item with enter (quando tiver component item)
+  //input.addEventListener("keypress", function(event) {
+  //if (event.key === "Enter") {
+  //  event.preventDefault();
   
 
 
