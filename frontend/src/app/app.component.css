@@ -3,17 +3,20 @@ h1 {
   margin-left: 30px;
   color: white
 }
+
 .leftnav {
   height: 100%;
-  width: 200px;
+  width: 210px;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
   background-color: black;
-  overflow-x: hidden;
+  overflow-x: auto;
+  /*overflow: auto;*/
   padding-top: 20px;
 }
+
 
 
 .leftnav a {
@@ -31,4 +34,9 @@ h1 {
 @media screen and (max-height: 500px) {
   .leftnav {padding-top: 15px;}
   .leftnav a {font-size: 18px;}
+}
+
+.search-wrapper {
+  width: 70%;
+  margin-left: 30px;
 }

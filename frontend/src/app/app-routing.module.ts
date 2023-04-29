@@ -6,6 +6,7 @@ import { ListsComponent } from './lists/lists.component';
 import { FollowersComponent } from './followers/followers.component';
 import { FollowingComponent } from './following/following.component';
 import { LibraryComponent } from './library/library.component';
+import { ItemsSearchComponent } from './items-search/items-search.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,8 @@ const routes: Routes = [
   { path: 'user-profile/:id/followers', component: FollowersComponent },
   { path: 'user-profile/:id/following', component: FollowingComponent },
   { path: 'user-profile/:id/library', component: LibraryComponent },
+  { path: 'items/:name', component: ItemsSearchComponent},
+  { path: 'itemsdetail/:id', component: ItemsSearchComponent},
 ];
 
 @NgModule({

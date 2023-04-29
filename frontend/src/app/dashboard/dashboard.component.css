@@ -1,6 +1,6 @@
 /* DashboardComponent's private CSS styles */
 
-h2 {
+/*h2 {
     text-align: center;
   }
 
@@ -31,4 +31,35 @@ h1 {
     line-height: 150px;
     text-align: center;
   }
- 
+*/
+
+h1 {
+  margin-left: 210px;
+  text-align: center;
+}
+
+.dashboard-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-left: 210px;
+  text-align: center;
+}
+
+.item {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  background-color: #3f525c;
+  flex-grow: 1;
+}
+
+.item a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-decoration: none;
+  color: white;
+}
