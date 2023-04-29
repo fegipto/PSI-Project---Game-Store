@@ -3,50 +3,32 @@
 h2 {
     text-align: center;
   }
+
+h1 {
+    padding-left: 300px;
+    padding-top: 50px;
+  }
   
   .dashboard-menu {
-    padding: 0;
-    max-width: 1500px;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     justify-content: space-around;
-    align-items: flex-start;
-    padding: 10px;
+    padding-top: 50px;
+    padding-left: 300px;
   }
  
   
   a {
-    display: inline; 
     background-color: #3f525c;
-    border-radius: 2px;
-    padding: 3.0rem;
+    padding: 100px;
     font-size: 1.5rem;
-    text-decoration: none;
-    display: inline-block;
     color: #fff;
     text-align: center;
-    width: 100%;
-    min-width: 270px;
-    min-height: 170px;
-    box-sizing: border-box;
 
   }
 
   div {
-    height: 100px;
     line-height: 150px;
     text-align: center;
   }
  
-  
-  @media (min-width: 600px) {
-    a {
-      width: 18%;
-      box-sizing: content-box;
-    }
-  }
-  
-  a:hover {
-    background-color: #000;
-  }

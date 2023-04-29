@@ -1,7 +1,12 @@
 /* DashboardComponent's private CSS styles */
+h1 {
+  padding-left: 300px;
+  padding-top: 50px;
+}
 
 h2 {
     text-align: center;
+    padding-top: 30px;
   }
   
   .list-menu {
@@ -66,3 +71,4 @@ h2 {
     display: grid;
     grid-template-rows: repeat(3, 33.33%);
   }
+

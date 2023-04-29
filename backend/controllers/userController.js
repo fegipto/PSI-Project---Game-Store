@@ -8,7 +8,7 @@ exports.users_list = async (req, res) => {
   const query = User.where('id', req.params.id);
   const user = await query.findOne();
   result = []
-  
+  if (user != null){
     for (let i = 0; i < user.lists.length; i++) {
       obj ={id: user.lists[i].id, name: user.lists[i].name, values: []}
       for (let j = 0; j < user.lists[i].values.length; j++) {
@@ -18,6 +18,7 @@ exports.users_list = async (req, res) => {
       }
       result.push(obj)
     }
+  }
   res.send(result);
 }
   
@@ -26,10 +27,12 @@ exports.library_list = async (req, res) => {
   const query = User.where('id', req.params.id);
   const user = await query.findOne();
   result = []
-  for (let i = 0; i < user.library.length; i++) {
-    const query = Item.where('_id', user.library[i]);
-    const one = await query.findOne();
-    result.push(one)
+  if (user != null){
+    for (let i = 0; i < user.library.length; i++) {
+      const query = Item.where('_id', user.library[i]);
+      const one = await query.findOne();
+      result.push(one)
+    }
   }
   res.send(result);
   }
@@ -39,10 +42,12 @@ exports.followers_list = async (req, res) => {
   const query = User.where('id', req.params.id);
   const user = await query.findOne();
   result = []
-  for (let i = 0; i < user.followers.length; i++) {
-    const query = User.where('_id', user.followers[i]);
-    const one = await query.findOne();
-    result.push(one)
+  if (user != null){
+    for (let i = 0; i < user.followers.length; i++) {
+      const query = User.where('_id', user.followers[i]);
+      const one = await query.findOne();
+      result.push(one)
+    }
   }
   res.send(result);
   }
@@ -52,10 +57,12 @@ exports.following_list = async (req, res) => {
   const query = User.where('id', req.params.id);
   const user = await query.findOne();
   result = []
-  for (let i = 0; i < user.following.length; i++) {
-    const query = User.where('_id', user.following[i]);
-    const one = await query.findOne();
-    result.push(one)
+  if (user != null){
+    for (let i = 0; i < user.following.length; i++) {
+      const query = User.where('_id', user.following[i]);
+      const one = await query.findOne();
+      result.push(one)
+    }
   }
   res.send(result);
   }

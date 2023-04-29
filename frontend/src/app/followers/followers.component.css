@@ -1,15 +1,16 @@
 /* DashboardComponent's private CSS styles */
+
 h1 {
   padding-left: 300px;
   padding-top: 50px;
 }
 
 h2 {
-    text-align: center;
-    padding-top: 30px;
-  }
+  text-align: center;
+  padding-top: 30px;
+}
   
-  .library-menu {
+  .followers-menu {
     padding: 0;
     margin: auto;
     max-width: 1000px;

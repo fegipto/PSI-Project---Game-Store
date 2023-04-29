@@ -58,10 +58,6 @@ export class UserService {
     return this.user_id;
   } 
 
-
-
-
-
   /** Log a UserService message with the MessageService */
   private log(message: string) {
     this.messageService.add(`UserService: ${message}`);
