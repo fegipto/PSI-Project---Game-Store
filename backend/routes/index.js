@@ -5,6 +5,7 @@ const mainController = require("../controllers/mainController");
 const userController = require("../controllers/userController");
 const itemController = require("../controllers/itemController");
 const userLoginController = require("../controllers/userLoginController");
+const loginController = require('../controllers/loginController');
 
 /* GET home page. */
 router.get("/", mainController.init);
@@ -24,5 +25,7 @@ router.get("/users/:id/followers", userController.followers_list);
 router.get("/items/:name", itemController.find_match_items);
 
 router.get("/itemsdetail/:id", itemController.find_Item);
+
+router.get("/login/:name/:password", loginController.try_login);
 
 module.exports = router;
