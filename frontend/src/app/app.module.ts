@@ -12,7 +12,6 @@ import { LibraryComponent } from './library/library.component';
 import { FollowingComponent } from './following/following.component';
 import { FollowersComponent } from './followers/followers.component';
 import { UserLoginComponent } from './user-login/user-login.component';
-import { UserSignupComponent } from './user-signup/user-signup.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +23,6 @@ import { UserSignupComponent } from './user-signup/user-signup.component';
     FollowingComponent,
     FollowersComponent,
     UserLoginComponent,
-    UserSignupComponent,
   ],
   imports: [
     BrowserModule,

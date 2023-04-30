@@ -12,7 +12,7 @@ export class UserLoginComponent {
 
   constructor(private userLoginService: UserloginService) {}
 
-  add(name: string, password: String): void {
+  add(name: string, password: string): void {
     name = name.trim();
     password = password.trim();
     if (!name) { return; }

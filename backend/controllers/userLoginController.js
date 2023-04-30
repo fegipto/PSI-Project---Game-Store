@@ -3,20 +3,6 @@ const async = require("async");
 
 const { body, validationResult } = require("express-validator");
 
-exports.userlogin_create_get = (req, res, next) => {
-    async.parallel(
-      {},
-      (err, results) => {
-        if (err) {
-          return next(err);
-        }
-        res.render("userlogin_form", {
-          title: "Create User",
-        });
-      }
-    );
-  };
-
   exports.userlogin_create_post = [
     (req, res, next) => {},
   

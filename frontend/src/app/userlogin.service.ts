@@ -12,7 +12,7 @@ import { MessageService } from './service/message.service';
 })
 export class UserloginService {
 
-  private userLoginurl = '/signup';  // URL to web api
+  private userLoginurl = 'api/signup';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -25,7 +25,7 @@ export class UserloginService {
   /** POST: add a new userlogin to the server */
   addUserLogin(userlogin: userlogin): Observable<userlogin> {
     return this.http.post<userlogin>(this.userLoginurl, userlogin, this.httpOptions).pipe(
-      tap((newUserLogin: userlogin) => this.log(`added userlogin w/ id=${newUserLogin._id}`)),
+      tap((newUserLogin: userlogin) => this.log(`added userlogin w/ username=${newUserLogin.name}`)),
       catchError(this.handleError<userlogin>('addUserLogin'))
     );
   }
