@@ -14,7 +14,6 @@ import { Item } from '../item';
 export class ItemService {
 
   uri = "http://localhost:3000";
-  user_id = 2; //TODO LOGIN
 
   constructor(
     private http: HttpClient,

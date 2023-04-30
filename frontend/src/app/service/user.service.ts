@@ -6,6 +6,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../user';
 import { ListItems } from '../lists';
 import { Item } from '../item';
+import { LoginService } from './login.service';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @Injectable({
@@ -14,11 +16,12 @@ import { Item } from '../item';
 export class UserService {
 
   uri = "http://localhost:3000";
-  user_id = 2; //TODO LOGIN
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService,
+    private loginService: LoginService,
+
     ) {
 
      }
@@ -26,36 +29,36 @@ export class UserService {
      private usersUrl = '/users';
 
   getLists(): Observable<ListItems[]>{
-    return this.http.get<ListItems[]>(`${this.uri}/users/${this.user_id}/lists`)
+    return this.http.get<ListItems[]>(`${this.uri}/users/${this.loginService.getLoginID()}/lists`)
         .pipe(
           catchError(this.handleError<ListItems[]>('getLists', []))
         );
   }
 
   getLibrary(): Observable<Item[]>{
-    return this.http.get<Item[]>(`${this.uri}/users/${this.user_id}/library`)
+    return this.http.get<Item[]>(`${this.uri}/users/${this.loginService.getLoginID()}/library`)
         .pipe(
           catchError(this.handleError<Item[]>('getLibrary', []))
         );
   }
 
   getFollowers(): Observable<User[]>{
-    return this.http.get<User[]>(`${this.uri}/users/${this.user_id}/followers`)
+    return this.http.get<User[]>(`${this.uri}/users/${this.loginService.getLoginID()}/followers`)
         .pipe(
           catchError(this.handleError<User[]>('getFollowers', []))
         );
   } 
 
   getFollowing(): Observable<User[]>{
-    return this.http.get<User[]>(`${this.uri}/users/${this.user_id}/following`)
+    return this.http.get<User[]>(`${this.uri}/users/${this.loginService.getLoginID()}/following`)
         .pipe(
           catchError(this.handleError<User[]>('getFollowing', []))
         );
   } 
 
   //Temporário para testar
-  getIdLogin(): Number{
-    return this.user_id;
+  getLoginID(): Number{
+    return this.loginService.getLoginID()
   } 
 
   /** Log a UserService message with the MessageService */
@@ -95,7 +98,7 @@ getUsers(): Observable<User[]> {
 }
 
 getUser(id: number): Observable<User> {
-  const url = `${this.uri}/user/${id}`;
+  const url = `${this.uri}/users/${id}`;
   return this.http.get<User>(url).pipe(
     tap(_ => this.log(`fetched User id=${id}`)),
     catchError(this.handleError<User>(`getUser id=${id}`))

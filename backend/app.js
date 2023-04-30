@@ -7,9 +7,8 @@ var cors = require('cors')
 
 var mainRouter = require("./routes/index");
 
-
-
 var app = express()
+
 app.use(cors())
 
 // Set up mongoose connection
@@ -17,7 +16,7 @@ const mongoose = require("mongoose");
 mongoose instanceof mongoose.Mongoose; // true
 mongoose.set('strictQuery', false);
 const m = new mongoose.Mongoose();
-const mongoDB = "mongodb+srv://jajao:jajao12345@cluster0.fdardxf.mongodb.net/?retryWrites=true&w=majority";
+const mongoDB = "mongodb+srv://martimparaiba:Rack-Recede6-Compactly@cluster0.y9zpgsz.mongodb.net/?retryWrites=true&w=majority";
 
 main().catch(err => console.log(err));
 async function main() {

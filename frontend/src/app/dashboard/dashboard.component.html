@@ -2,16 +2,16 @@
 
 <div class="dashboard-menu">
     <div class="item">
-        <a routerLink="/user-profile/${getIdLogin()}/lists">Lists</a>
+        <a routerLink="/user-profile/{{loginService.getLoginID()}}/lists">Lists</a>
     </div>
     <div class="item">
-        <a routerLink="/user-profile/${getIdLogin()}/library">Library</a>
+        <a routerLink="/user-profile/{{loginService.getLoginID()}}/library">Library</a>
     </div>
     <div class="item">
-        <a routerLink="/user-profile/${getIdLogin()}/following">Following</a>
+        <a routerLink="/user-profile/{{loginService.getLoginID()}}/following">Following</a>
     </div>
     <div class="item">
-        <a routerLink="/user-profile/${getIdLogin()}/followers">Followers</a>
+        <a routerLink="/user-profile/{{loginService.getLoginID()}}/followers">Followers</a>
     </div>
 </div>
 

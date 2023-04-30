@@ -1,0 +1,15 @@
+<h2>Create account</h2>
+
+<div>
+  <label for="new-userlogin">User name: </label>
+  <input id="new-userlogin" #userloginName />
+  <label for="new-userloginpass">Password:</label>
+  <input id="new-userloginpass" #userloginPassword />
+  <p> The password should contain at least 8 characters, being 1 Uppercase, 1 lowercase and 1 number necessary.</p>
+
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button" (click)="add(userloginName.value, userloginPassword.value); userloginName.value=''; userloginPassword.value = ''">
+    Create
+  </button>
+</div>

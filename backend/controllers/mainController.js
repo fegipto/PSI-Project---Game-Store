@@ -16,7 +16,7 @@ users = []
 items = []
 
 async function userCreate(id, name, lists, library, followers, following) {
-    userdetail = { id: id, name:name, lists:lists, library:library, followers:followers, following:following};
+    userdetail = { id: id, name:name, lists:lists, library:library, followers:followers, following:following, password: '123'};
     const user = new User(userdetail);
     users.push(user);
     await user.save();

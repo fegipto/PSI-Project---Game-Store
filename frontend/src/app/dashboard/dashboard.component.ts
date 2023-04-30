@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { UserService } from '../service/user.service';
 import { User } from '../user';
+import { LoginService } from '../service/login.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +14,7 @@ export class DashboardComponent implements OnInit {
  
 
   constructor(private userService: UserService, 
-              private location: Location) { }
+              private location: Location, public loginService: LoginService) { }
 
   ngOnInit(): void {
   }
@@ -23,7 +24,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getIdLogin(){
-    return this.userService.getIdLogin();
+    return this.userService.getLoginID();
   }
 
 

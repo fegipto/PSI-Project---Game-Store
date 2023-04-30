@@ -4,6 +4,7 @@ import { User } from '../user';
 import { ListItems } from '../lists';
 import { Item } from '../item';
 import { Location } from '@angular/common';
+import { LoginService } from '../service/login.service';
 
 @Component({
   selector: 'app-lists',
@@ -16,7 +17,7 @@ export class ListsComponent {
 
 
   constructor(private userService: UserService,
-    private location:  Location) { }
+    private location:  Location, public loginService: LoginService) { }
 
   ngOnInit(): void {
     this.getLists();
@@ -29,7 +30,7 @@ export class ListsComponent {
 
 
   getIdLogin(){
-    return this.userService.getIdLogin();
+    return this.userService.getLoginID();
   }
 
   goBack(): void {
