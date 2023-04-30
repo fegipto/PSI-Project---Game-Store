@@ -9,7 +9,7 @@ import { LibraryComponent } from './library/library.component';
 import { ItemsSearchComponent } from './items-search/items-search.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { LoginComponent } from './login/login.component';
-
+import { ItemDetailComponent } from './item-detail/item-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -21,8 +21,8 @@ const routes: Routes = [
   { path: 'user-profile/:id/followers', component: FollowersComponent },
   { path: 'user-profile/:id/following', component: FollowingComponent },
   { path: 'user-profile/:id/library', component: LibraryComponent },
-  { path: 'items/:name', component: ItemsSearchComponent},
-  { path: 'itemsdetail/:id', component: ItemsSearchComponent},
+  { path: 'items/:name', component: ItemDetailComponent},
+  { path: 'itemsdetail/:id', component: ItemDetailComponent},
 ];
 
 @NgModule({

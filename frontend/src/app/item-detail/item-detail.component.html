@@ -1,1 +1,30 @@
-<p>item-detail works!</p>
+<div *ngIf="item" class="item-detail">
+  <div class="item">
+    <div class="item-details">
+      <h2 class="item-name">{{item.name}}</h2>
+      <div class="item-images">
+        <div class="image-container">
+          <img *ngIf="item.imagens && item.imagens.length > 0 && images && images.length > 0" 
+               [src]="'data:' + item.imagens[0].contentType + ';base64,' + images[0]" />
+        </div>
+      </div>
+      <p class="item-description">{{item.descricao}}</p>
+      <ul class="item-info">
+        <li><strong>Type:</strong>{{item.tipo}}</li>
+        <li><strong>Plataform:</strong> {{item.plataforma}}</li>
+        <li><strong>Languages:</strong> {{item.idiomas}}</li>
+        <li><strong>Price:</strong> {{item.preco}}€</li>
+        <li><strong>Classification:</strong> {{item.classificacao}}</li>
+        <li><strong>Evaluation:</strong> {{item.avaliacoes}}</li>
+        <li><strong>Other images:</strong>
+          <div  class="image-container-bottom" *ngFor="let image of item.imagens.slice(1)">
+            <img *ngIf="image && image.contentType && image.data"
+                 [src]="'data:' + image.contentType + ';base64,' + image.data" />
+          </div>
+        </li>
+        <p><strong>Vídeo:</strong> <a href="{{item.video}}">{{item.video}}</a></p>
+      </ul>
+      <a href="#" class="item-button">Buy Now</a>
+    </div>
+  </div>
+</div>

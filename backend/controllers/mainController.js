@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const Item = require("../models/Item");
 const UserController = require("../controllers/userController");
+const fs = require('fs');
 
 exports.init = (req, res) => {
     createItems();
@@ -62,22 +63,66 @@ async function createUsers() {
     ]);
 }
 
-async function itemCreate(id, name, description) {
-    itemdetail = { id: id, name:name};
-    const item = new Item(itemdetail);
-    items.push(item);
-    await item.save();
-    console.log(`Added item: ${name}`);
-}
-
 async function createItems() {
     await Promise.all([
-        itemCreate(1,"Car"),
-        itemCreate(2,"Phone"),
-        itemCreate(3,"Ball"),
-        itemCreate(4,"Dice"),
+                itemCreate(item1),
+                itemCreate(item2),
+                itemCreate(item3),
     ]);
 }
+
+async function itemCreate(item) {
+    items.push(item);
+    await item.save();
+    console.log(`Added item: ${item.name}`);
+}
+
+// Read the image file and convert it to base64-encoded data
+const imageData = fs.readFileSync('../images/callofduty.jpg', { encoding: 'base64' });
+
+// Create four example items
+const item1 = new Item({
+  id: '11111',
+  name: 'Call of Duty',
+  descricao: 'This is a war game',
+  tipo: 'Jogo',
+  plataforma: 'PC',
+  idiomas: 'Inglês, Português',
+  preco: 49.99,
+  classificacao: 'E',
+  avaliacoes: 4.5,
+  imagens: [{ data: imageData, contentType: 'image/jpg' }],
+  video: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+});
+
+const item2 = new Item({
+  id: '234',
+  name: 'Item 2',
+  descricao: 'This is the second item',
+  tipo: 'DLC',
+  plataforma: 'PS4',
+  idiomas: 'Inglês',
+  preco: 9.99,
+  classificacao: 'M',
+  avaliacoes: 3.2,
+  imagens: [{ data: Buffer.from('image2'), contentType: 'image/png' }, { data: Buffer.from('image3'), contentType: 'image/png' }],
+});
+
+const item3 = new Item({
+  id: '345',
+  name: 'Item 3',
+  descricao: 'This is the third item',
+  tipo: 'Subscrição',
+  plataforma: 'Xbox One',
+  idiomas: 'Inglês, Espanhol',
+  preco: 14.99,
+  classificacao: 'T',
+  avaliacoes: 4.7,
+  imagens: [{ data: Buffer.from('image4'), contentType: 'image/png'
+    }],
+    video: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+});
+
 
 async function getItemId(id) {
     const query = Item.where('id', id);
