@@ -29,7 +29,7 @@ export class ListsComponent {
 
 
   getIdLogin(){
-    return this.userService.getIdLogin();
+    return this.userService.getLoginID();
   }
 
   goBack(): void {

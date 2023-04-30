@@ -6,6 +6,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../user';
 import { ListItems } from '../lists';
 import { Item } from '../item';
+import { LoginService } from './login.service';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @Injectable({
@@ -19,6 +21,8 @@ export class UserService {
   constructor(
     private http: HttpClient,
     private messageService: MessageService,
+    private loginService: LoginService,
+
     ) {
 
      }
@@ -54,8 +58,8 @@ export class UserService {
   } 
 
   //Temporário para testar
-  getIdLogin(): Number{
-    return this.user_id;
+  getLoginID(): Number{
+    return this.loginService.getLoginID()
   } 
 
   /** Log a UserService message with the MessageService */

@@ -16,7 +16,7 @@ export class FollowingComponent {
   users: User[] = [];
 
   getIdLogin(){
-    return this.userService.getIdLogin();
+    return this.userService.getLoginID();
   }
 
   ngOnInit(): void {

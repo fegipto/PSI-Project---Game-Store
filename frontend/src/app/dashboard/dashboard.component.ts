@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getIdLogin(){
-    return this.userService.getIdLogin();
+    return this.userService.getLoginID();
   }
 
 
