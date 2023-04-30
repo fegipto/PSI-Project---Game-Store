@@ -66,7 +66,7 @@ searchItems(term: string): Observable<Item[]> {
 
 
 getItem(id: Number): Observable<Item>{
-  return this.http.get<Item>(`${this.uri}/items/${id}`)
+  return this.http.get<Item>(`${this.uri}/itemsdetail/${id}`)
       .pipe(
         catchError(this.handleError<Item>('getId', ))
       );

@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const Item = require("../models/Item");
 const UserController = require("../controllers/userController");
+const fs = require('fs');
 
 exports.init = (req, res) => {
     createItems();
@@ -73,21 +74,24 @@ async function createItems() {
 async function itemCreate(item) {
     items.push(item);
     await item.save();
-    console.log(`Added item: ${name}`);
+    console.log(`Added item: ${item.name}`);
 }
+
+// Read the image file and convert it to base64-encoded data
+const imageData = fs.readFileSync('../images/callofduty.jpg', { encoding: 'base64' });
 
 // Create four example items
 const item1 = new Item({
-  id: '123',
-  name: 'Item 1',
-  descricao: 'This is the first item',
+  id: '11111',
+  name: 'Call of Duty',
+  descricao: 'This is a war game',
   tipo: 'Jogo',
   plataforma: 'PC',
   idiomas: 'Inglês, Português',
   preco: 49.99,
   classificacao: 'E',
   avaliacoes: 4.5,
-  imagens: [{ data: Buffer.from('image1'), contentType: 'image/png' }],
+  imagens: [{ data: imageData, contentType: 'image/jpg' }],
   video: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
 });
 
