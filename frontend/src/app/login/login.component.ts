@@ -17,9 +17,6 @@ export class LoginComponent {
   loggedIn: boolean = false;
   userId: number = -1;
 
-  /**
-   *
-   */
   constructor(private loginService: LoginService, private location: Location, private cookieService: CookieService) {}
 
   onSubmit(form: NgForm) {
@@ -42,19 +39,17 @@ export class LoginComponent {
         setTimeout(() => {
           window.location.reload()
         }, 200);
-      } else {
-        console.log("Successful Login")
-        this.loggedIn = true;
-        this.userId = user.id;
-
-        this.cookieService.set("loggedIn", "true");
-        this.cookieService.set("userID",  String(user.id));
+        return;
       }
-      return;
+      console.log("Successful Login")
+      this.loggedIn = true;
+      this.userId = user.id;
+
+      this.cookieService.set("loggedIn", "true");
+      this.cookieService.set("userID",  String(user.id));
+
+      window.location.assign(window.location.origin);
     });
   }
 
-  public isLogedIn(): boolean {
-    return this.loggedIn;
-  }
 }
