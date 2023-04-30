@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 
 import { userlogin } from './userlogin';
 import { MessageService } from './service/message.service';
@@ -12,7 +12,7 @@ import { MessageService } from './service/message.service';
 })
 export class UserloginService {
 
-  private userLoginurl = 'api/login';  // URL to web api
+  private userLoginurl = '/signup';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -21,14 +21,6 @@ export class UserloginService {
   constructor(
     private messageService: MessageService,
     private http: HttpClient) { }
-
-  getUsersLogin(): Observable<userlogin[]> {
-    return this.http.get<userlogin[]>(this.userLoginurl)
-      .pipe(
-        tap(_ => this.log('fetched userslogin')),
-        catchError(this.handleError<userlogin[]>('getusersLogin', []))
-      );
-  }
 
   /** POST: add a new userlogin to the server */
   addUserLogin(userlogin: userlogin): Observable<userlogin> {

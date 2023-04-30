@@ -3,9 +3,14 @@ var router = express.Router();
 var path = require('path');
 const mainController = require("../controllers/mainController");
 const userController = require("../controllers/userController");
+const userLoginController = require("../controllers/userLoginController");
 
 /* GET home page. */
 router.get("/", mainController.init);
+
+router.get("/signup", userLoginController.userlogin_create_get);
+
+router.post("/signup", userLoginController.userlogin_create_post);
 
 router.get("/users/:id", userController.find_User);
 
