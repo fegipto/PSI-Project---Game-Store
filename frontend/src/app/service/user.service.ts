@@ -29,28 +29,28 @@ export class UserService {
      private usersUrl = '/users';
 
   getLists(): Observable<ListItems[]>{
-    return this.http.get<ListItems[]>(`${this.uri}/users/${this.getLoginID()}/lists`)
+    return this.http.get<ListItems[]>(`${this.uri}/users/${this.loginService.getLoginID()}/lists`)
         .pipe(
           catchError(this.handleError<ListItems[]>('getLists', []))
         );
   }
 
   getLibrary(): Observable<Item[]>{
-    return this.http.get<Item[]>(`${this.uri}/users/${this.getLoginID()}/library`)
+    return this.http.get<Item[]>(`${this.uri}/users/${this.loginService.getLoginID()}/library`)
         .pipe(
           catchError(this.handleError<Item[]>('getLibrary', []))
         );
   }
 
   getFollowers(): Observable<User[]>{
-    return this.http.get<User[]>(`${this.uri}/users/${this.getLoginID()}/followers`)
+    return this.http.get<User[]>(`${this.uri}/users/${this.loginService.getLoginID()}/followers`)
         .pipe(
           catchError(this.handleError<User[]>('getFollowers', []))
         );
   } 
 
   getFollowing(): Observable<User[]>{
-    return this.http.get<User[]>(`${this.uri}/users/${this.getLoginID()}/following`)
+    return this.http.get<User[]>(`${this.uri}/users/${this.loginService.getLoginID()}/following`)
         .pipe(
           catchError(this.handleError<User[]>('getFollowing', []))
         );

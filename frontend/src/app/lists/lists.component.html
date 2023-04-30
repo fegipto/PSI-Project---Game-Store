@@ -1,8 +1,8 @@
-<h2>Lists</h2>
-<div class="list-menu">
+<h2 *ngIf="loginService.isLoggedIn()">Lists</h2>
+<div *ngIf="loginService.isLoggedIn()" class="list-menu">
 
   <h3 *ngFor="let list of listItems, let i = index"  
-      routerLink="/users/${getIdLogin()}/lists"> 
+      routerLink="/users/{{loginService.getLoginID()}}/lists"> 
       {{list.name}}
       <p *ngFor="let item of listItems[i].values">
       {{item.name}}
