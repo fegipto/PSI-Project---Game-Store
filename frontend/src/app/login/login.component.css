@@ -4,6 +4,7 @@
   justify-content: center;
   align-items: start;
   margin-top: 10em;
+  font-size: x-large;
 }
 
 h2 {
@@ -19,6 +20,15 @@ h2 {
   border: 2px solid #ccc;
   border-radius: 1em;
   background-color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100%
+}
+
+.form-container > form {
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .form-group {
@@ -44,6 +54,8 @@ h2 {
 label {
   display: block;
   text-align: start;
+  font-weight: bold;
+  color: #565656;
 }
 
 input {
@@ -53,8 +65,10 @@ input {
   border-radius: 1em;
   padding-left: 0.5em;
   padding-right: 0.5em;
-  height: 1.75em;
+  height: 2em;
   outline: none;
+
+  font-size: x-large;
 
 }
 
