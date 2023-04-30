@@ -4,9 +4,12 @@ var path = require('path');
 const mainController = require("../controllers/mainController");
 const userController = require("../controllers/userController");
 const itemController = require("../controllers/itemController");
+const userLoginController = require("../controllers/userLoginController");
 
 /* GET home page. */
 router.get("/", mainController.init);
+
+router.post("/signup", userLoginController.userlogin_create_post);
 
 router.get("/users/:id", userController.find_User);
 

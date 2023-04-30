@@ -7,9 +7,8 @@ var cors = require('cors')
 
 var mainRouter = require("./routes/index");
 
-
-
 var app = express()
+
 app.use(cors())
 
 // Set up mongoose connection
