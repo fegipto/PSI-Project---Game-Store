@@ -2,7 +2,8 @@
 <h1>Menu</h1>
 <nav>
   <a routerLink="/dashboard">Dashboard</a>
-  <a routerLink="/user-profile/:id">Profile</a>
+  <a *ngIf="loginService.isLoggedIn()" routerLink="/user-profile/{{loginService.getLoginID()}}">Profile</a>
+  <a *ngIf="!loginService.isLoggedIn()" routerLink="/login">Login</a>
   <div class="search-wrapper">
     <app-items-search></app-items-search>
   </div>

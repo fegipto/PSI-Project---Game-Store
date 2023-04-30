@@ -16,7 +16,6 @@ import { CookieService } from 'ngx-cookie-service';
 export class UserService {
 
   uri = "http://localhost:3000";
-  user_id = 2; //TODO LOGIN
 
   constructor(
     private http: HttpClient,
@@ -30,28 +29,28 @@ export class UserService {
      private usersUrl = '/users';
 
   getLists(): Observable<ListItems[]>{
-    return this.http.get<ListItems[]>(`${this.uri}/users/${this.user_id}/lists`)
+    return this.http.get<ListItems[]>(`${this.uri}/users/${this.getLoginID()}/lists`)
         .pipe(
           catchError(this.handleError<ListItems[]>('getLists', []))
         );
   }
 
   getLibrary(): Observable<Item[]>{
-    return this.http.get<Item[]>(`${this.uri}/users/${this.user_id}/library`)
+    return this.http.get<Item[]>(`${this.uri}/users/${this.getLoginID()}/library`)
         .pipe(
           catchError(this.handleError<Item[]>('getLibrary', []))
         );
   }
 
   getFollowers(): Observable<User[]>{
-    return this.http.get<User[]>(`${this.uri}/users/${this.user_id}/followers`)
+    return this.http.get<User[]>(`${this.uri}/users/${this.getLoginID()}/followers`)
         .pipe(
           catchError(this.handleError<User[]>('getFollowers', []))
         );
   } 
 
   getFollowing(): Observable<User[]>{
-    return this.http.get<User[]>(`${this.uri}/users/${this.user_id}/following`)
+    return this.http.get<User[]>(`${this.uri}/users/${this.getLoginID()}/following`)
         .pipe(
           catchError(this.handleError<User[]>('getFollowing', []))
         );
@@ -99,7 +98,7 @@ getUsers(): Observable<User[]> {
 }
 
 getUser(id: number): Observable<User> {
-  const url = `${this.uri}/user/${id}`;
+  const url = `${this.uri}/users/${id}`;
   return this.http.get<User>(url).pipe(
     tap(_ => this.log(`fetched User id=${id}`)),
     catchError(this.handleError<User>(`getUser id=${id}`))
