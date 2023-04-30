@@ -11,8 +11,9 @@ import { Item } from '../item';
 })
 
 export class ItemDetailComponent implements OnInit {
-  item: Item | undefined;
+  item!: Item;
   selectedOption:String = "";
+  image: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,10 +22,10 @@ export class ItemDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getItems();
+    this.getItem();
   }
   
-  getItems(): void {
+  getItem(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.itemService.getItem(id)
       .subscribe(item => this.item = item);

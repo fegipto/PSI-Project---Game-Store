@@ -1,1 +1,23 @@
-<p>item-detail works!</p>
+<div class="item-detail">
+    <a *ngFor="let item">
+    <a routerLink="/itemsdetail/:id"></a>
+    <h2>{{item.name}}</h2>
+    <div class="item-info">
+      <p><strong>Descrição:</strong> {{item.descricao}}</p>
+      <p><strong>Tipo:</strong> {{item.tipo}}</p>
+      <p><strong>Plataforma:</strong> {{item.plataforma}}</p>
+      <p><strong>Idiomas:</strong> {{item.idiomas}}</p>
+      <p><strong>Preço:</strong> {{item.preco}}</p>
+      <p><strong>Classificação:</strong> {{item.classificacao}}</p>
+      <p><strong>Avaliações:</strong> {{item.avaliacoes}}</p>
+      <div class="item-images">
+        <h3>Imagens:</h3>
+        <div class="image-container" *ngFor="let image of item.imagens">
+            <img [src]="'data:' + image.contentType + ';base64,' + image.data" />
+          </div>          
+      </div>
+      <p><strong>Vídeo:</strong> <a href="{{item.video}}">{{item.video}}</a></p>
+    </div>
+    </a>
+  </div>
+  
