@@ -15,6 +15,7 @@ import { ItemService } from './service/item.service';
 import { ItemsSearchComponent } from './items-search/items-search.component';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
 import { UserLoginComponent } from './user-login/user-login.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { UserLoginComponent } from './user-login/user-login.component';
     ItemsSearchComponent,
     ItemDetailComponent,
     UserLoginComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

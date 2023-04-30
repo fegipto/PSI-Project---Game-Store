@@ -8,10 +8,12 @@ import { FollowingComponent } from './following/following.component';
 import { LibraryComponent } from './library/library.component';
 import { ItemsSearchComponent } from './items-search/items-search.component';
 import { UserLoginComponent } from './user-login/user-login.component';
+import { LoginComponent } from './login/login.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'signup', component: UserLoginComponent },
   { path: 'user-profile/:id', component: UserProfileComponent },
