@@ -22,15 +22,19 @@ export class UserLoginComponent {
 
     if(!this.password.match("^.*(([a-z]+.*[A-Z]+.*[0-9]+)|([A-Z]+.*[a-z]+.*[0-9]+)|([A-Z]+.*[0-9]+.*[a-z]+)|([a-z]+.*[0-9]+.*[A-Z]+)|([0-9]+.*[a-z]+.*[A-Z]+)|([0-9]+.*[A-Z]+.*[a-z]+)).*$")) {
       alert("The password should contain at least 1 Uppercased letter, 1 lowercased letter and 1 number.");
+      return;
     }
     if(this.password.length < 8) {
       alert("The password should contain at least 8 characters.");
+      return;
     }
-    if(!this.username.match("^[a-zA-Z0-9]$")) {
+    if(this.username.match("^[a-zA-Z0-9]$")) {
       alert("Name can only use alphanumeric characters");
+      return;
     }
     if(this.username.length < 3) {
       alert("Name must have at least 3 characters");
+      return;
     }
 
     if (!this.username) { return; }
