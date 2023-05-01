@@ -1,9 +1,9 @@
 .login-container {
-  margin-left: 210px;
+  margin-left: 0px;
   display: flex;
   justify-content: center;
   align-items: start;
-  margin-top: 10em;
+  margin-top: 5em;
   font-size: x-large;
 }
 

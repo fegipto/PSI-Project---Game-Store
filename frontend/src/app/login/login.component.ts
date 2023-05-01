@@ -1,23 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { NgForm } from '@angular/forms';
 import { LoginService } from '../service/login.service';
+import { MessageService } from '../service/message.service';
 import { timeInterval, timeout } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   
   username: String = "";
   password: String = "";
   loggedIn: boolean = false;
   userId: number = -1;
 
-  constructor(private loginService: LoginService, private location: Location, private cookieService: CookieService) {}
+  constructor(private router: Router, 
+    public loginService: LoginService, 
+    private location: Location, 
+    private cookieService: CookieService) {}
+
+  ngOnInit(): void {
+    this.cookieService.set("loggedIn", "false");      
+  }
 
   onSubmit(form: NgForm) {
     const username = form.value.username;
@@ -31,25 +40,31 @@ export class LoginComponent {
       return;
     }
 
-    console.log('username: ' + username + '\npassword: ' + password);
+    //console.log('username: ' + username + '\npassword: ' + password);
 
     this.loginService.tryLogin(username, password).subscribe((user) => {
       if (user == null) {
-        console.log("Failed Login")
+        alert("Failed Login")
         setTimeout(() => {
           window.location.reload()
         }, 200);
         return;
       }
-      console.log("Successful Login")
+      alert("Successful Login")
       this.loggedIn = true;
       this.userId = user.id;
 
       this.cookieService.set("loggedIn", "true");
       this.cookieService.set("userID",  String(user.id));
 
-      window.location.assign(window.location.origin);
+      window.location.assign("dashboard");
     });
   }
+
+  goToRouterLink(path: string): void {
+    this.router.navigateByUrl(path);
+  }
+
+  
 
 }

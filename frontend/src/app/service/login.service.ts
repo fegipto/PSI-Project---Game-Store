@@ -14,7 +14,7 @@ import { CookieService } from 'ngx-cookie-service';
   providedIn: 'root',
 })
 export class LoginService {
-  uri = 'http://localhost:3000';
+  uri = 'http://localhost:3031';
 
   constructor(
     private http: HttpClient,
@@ -33,6 +33,8 @@ export class LoginService {
     return false;
 
   }
+
+
 
   getLoginID() : number {
     if (this.isLoggedIn()) {

@@ -1,9 +1,8 @@
-<div class="leftnav"> 
+<div *ngIf="loginService.isLoggedIn()" class="leftnav"> 
 <h1>Menu</h1>
 <nav>
   <a routerLink="/dashboard">Dashboard</a>
-  <a *ngIf="loginService.isLoggedIn()" routerLink="/user-profile/{{loginService.getLoginID()}}">Profile</a>
-  <a *ngIf="!loginService.isLoggedIn()" routerLink="/login">Login</a>
+  <a  routerLink="/user-profile/{{loginService.getLoginID()}}">Profile</a>
   <div class="search-wrapper">
     <app-items-search></app-items-search>
   </div>

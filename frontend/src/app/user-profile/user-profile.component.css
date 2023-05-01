@@ -27,3 +27,35 @@ label {
     font-size: 1em;
     padding: .5rem;
   }
+
+  #profile-container {
+    margin-left: 210px;
+    padding: 5%;
+    display: grid;
+    
+    gap: 10px;  
+
+    
+    
+  }
+
+  #profile-container > * {
+    padding: 10px;
+  }
+
+
+
+  #user-name {
+    grid-column: 1/ span 2;
+  }
+
+  #user-img {
+    min-height: 100px;
+    text-align: center;
+    vertical-align: middle;
+    background-size: contain; /* Stretch the image to fit inside the element, maintaining aspect ratio */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url("/images/callofduty.jpg");
+
+  }

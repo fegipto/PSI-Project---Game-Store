@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { User } from '../user';
-import { UserloginService } from '../userlogin.service';
+import { UserloginService } from '../service/userlogin.service';
 
 @Component({
   selector: 'app-user-login',
@@ -37,5 +37,6 @@ export class UserLoginComponent {
     if (!this.password) { return; }
     this.userLoginService.addUser({ id: this.userId, name: this.username, password: this.password } as User)
       .subscribe();
+    window.location.assign("login");
   }
 }

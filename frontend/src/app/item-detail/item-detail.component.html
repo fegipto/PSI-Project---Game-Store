@@ -10,13 +10,13 @@
       </div>
       <p class="item-description">{{item.descricao}}</p>
       <ul class="item-info">
-        <li><strong>Type:</strong>{{item.tipo}}</li>
-        <li><strong>Plataform:</strong> {{item.plataforma}}</li>
-        <li><strong>Languages:</strong> {{item.idiomas}}</li>
-        <li><strong>Price:</strong> {{item.preco}}€</li>
-        <li><strong>Classification:</strong> {{item.classificacao}}</li>
-        <li><strong>Evaluation:</strong> {{item.avaliacoes}}</li>
-        <li><strong>Other images:</strong>
+        <li *ngIf="this.item.tipo != undefined"><strong>Type:</strong>{{item.tipo}}</li>
+        <li *ngIf="this.item.plataforma != undefined"><strong>Plataform:</strong> {{item.plataforma}}</li>
+        <li *ngIf="this.item.idiomas != undefined"><strong>Languages:</strong> {{item.idiomas}}</li>
+        <li *ngIf="this.item.preco != undefined"><strong>Price:</strong> {{item.preco}}€</li>
+        <li *ngIf="this.item.classificacao != undefined"><strong>Classification:</strong> {{item.classificacao}}</li>
+        <li *ngIf="this.item.avaliacoes != undefined"><strong>Evaluation:</strong> {{item.avaliacoes}}</li>
+        <li *ngIf="this.item.imagens != undefined"><strong>Other images:</strong>
           <div  class="image-container-bottom" *ngFor="let image of item.imagens.slice(1)">
             <img *ngIf="image && image.contentType && image.data"
                  [src]="'data:' + image.contentType + ';base64,' + image.data" />
@@ -28,3 +28,4 @@
     </div>
   </div>
 </div>
+<div class="back_button"> <button type="button" (click)="goBack()">go back</button></div>

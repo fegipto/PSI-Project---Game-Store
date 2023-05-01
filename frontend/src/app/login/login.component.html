@@ -1,4 +1,4 @@
-<div class="login-container">
+<div *ngIf="!loginService.isLoggedIn()" class="login-container">
   <div class="form-container">
     <h2>Login</h2>
     <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
@@ -26,7 +26,8 @@
           required
         />
       </div>
-      <button type="submit">Continue</button>
+      <button type="submit" (click)="goToRouterLink('Dashboard')">Login</button>
+      <button type="submit" (click)="goToRouterLink('signup')">Signup</button>
     </form>
   </div>
 </div>

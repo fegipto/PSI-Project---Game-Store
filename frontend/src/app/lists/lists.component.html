@@ -4,7 +4,8 @@
   <h3 *ngFor="let list of listItems, let i = index"  
       routerLink="/users/{{loginService.getLoginID()}}/lists"> 
       {{list.name}}
-      <p *ngFor="let item of listItems[i].values">
+      <p *ngFor="let item of listItems[i].values"
+      routerLink="/itemsdetail/{{item.id}}"> 
       {{item.name}}
       </p>
     </h3>
