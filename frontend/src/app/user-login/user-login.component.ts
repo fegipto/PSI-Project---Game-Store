@@ -28,7 +28,7 @@ export class UserLoginComponent {
       alert("The password should contain at least 8 characters.");
       return;
     }
-    if(this.username.match("^[a-zA-Z0-9]$")) {
+    if(!this.username.match("^[a-zA-Z0-9]$")) {
       alert("Name can only use alphanumeric characters");
       return;
     }
