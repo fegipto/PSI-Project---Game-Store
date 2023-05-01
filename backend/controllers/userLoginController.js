@@ -4,9 +4,9 @@ const User = require("../models/User");
   
       // Create a User object with data.
       const user = new User({
-        id: req.params.id,
-        name: req.params.name,
-        password: req.params.password,
+        id: req.body.id,
+        name: req.body.name,
+        password: req.body.password,
       });
   
       // Save user.
