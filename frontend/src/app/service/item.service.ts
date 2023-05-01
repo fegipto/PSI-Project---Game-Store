@@ -13,7 +13,7 @@ import { Item } from '../item';
 })
 export class ItemService {
 
-  uri = "http://localhost:3000";
+  uri = "http://localhost:3031";
 
   constructor(
     private http: HttpClient,

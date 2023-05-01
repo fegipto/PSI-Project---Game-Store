@@ -1,7 +1,7 @@
 <h2>Library</h2>
 <div class="library-menu">
   <a *ngFor="let item of items"
-      routerLink="/users/{{loginService.getLoginID()}}/library">
+      routerLink="/itemsdetail/{{item.id}}"> 
       {{item.name}}
   </a>
 </div>

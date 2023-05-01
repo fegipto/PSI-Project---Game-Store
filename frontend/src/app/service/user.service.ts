@@ -15,7 +15,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class UserService {
 
-  uri = "http://localhost:3000";
+  uri = "http://localhost:3031";
 
   constructor(
     private http: HttpClient,

@@ -1,18 +1,20 @@
 input {
-    display: block;
-    width: 100%;
-    padding: .5rem;
-    margin: 1rem 0;
-    box-sizing: border-box;
-  }
-  
-  .add-button {
-   padding: .5rem 1.5rem;
-   font-size: 1rem;
-   margin-bottom: 2rem;
-  }
-  
-  .add-button:hover {
-    color: white;
-    background-color: #42545C;
-  }
+  display: block;
+  width: 100%;
+  margin: 1rem 0;
+  box-sizing: border-box;
+  max-width: 300px;
+}
+.userlogin{
+  align-items: center;
+}
+
+.add-button {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.add-button:hover {
+  color: white;
+  background-color: #42545C;
+}

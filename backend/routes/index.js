@@ -28,4 +28,6 @@ router.get("/itemsdetail/:id", itemController.find_Item);
 
 router.get("/login/:name/:password", loginController.try_login);
 
+router.post("/signup", userLoginController.userlogin_create_post);
+
 module.exports = router;
