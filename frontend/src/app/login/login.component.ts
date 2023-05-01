@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     private cookieService: CookieService) {}
 
   ngOnInit(): void {
-    this.cookieService.set("loggedIn", "false");      
+    this.cookieService.set("loggedIn", "false");
   }
 
   onSubmit(form: NgForm) {

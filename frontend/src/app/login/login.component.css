@@ -1,11 +1,10 @@
 .login-container {
-  margin-left: 0px;
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start; /* Change start to flex-start */
   margin-top: 5em;
   font-size: x-large;
-}
+}cd
 
 h2 {
   margin: 0;
@@ -49,6 +48,7 @@ h2 {
   width: 95%;
   display: flex;
   align-items: start;
+  justify-content: flex-start;
 }
 
 label {
@@ -72,8 +72,7 @@ input {
 
 }
 
-input:focus {
-}
+
 
 button {
   display: block;
