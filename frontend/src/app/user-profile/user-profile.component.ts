@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { UserService } from '../service/user.service';
 import { User } from '../user';
+import { ListItems } from '../lists';
+import { LoginService } from '../service/login.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -12,15 +14,19 @@ import { User } from '../user';
 export class UserProfileComponent implements OnInit {
   user: User | undefined;
   selectedOption:String = "";
+  listItems: ListItems[] = [];
 
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
-    private location: Location
+    private location: Location,
+    public loginService: LoginService
   ) {}
 
   ngOnInit(): void {
     this.getuser();
+    this.getLists();
+    
   }
   save(): void {
     if (this.user) {
@@ -34,6 +40,12 @@ export class UserProfileComponent implements OnInit {
     this.userService.getUser(id)
       .subscribe(user => this.user = user);
   }
+
+  getLists(): void {
+    this.userService.getLists()
+      .subscribe(users => this.listItems = users);
+  }
+
   goBack(): void {
     this.location.back();
   }

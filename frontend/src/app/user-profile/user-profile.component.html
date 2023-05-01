@@ -1,2 +1,27 @@
+<div id="profile-container">
+  <h2 id="user-name">{{ this.user?.name }}</h2>
+  <div
+    id="user-img"
+    style="
+      background-image: url(https://yt3.ggpht.com/ytc/AGIKgqOSWK9LIZ9xGvDbBZ7gjBK1ayNCxK0jKMOq1FirfA=s48-c-k-c0x00ffffff-no-rj);
+    "
+  ></div>
+  <a id="user-library" routerLink="/user-profile/{{ this.user?.id }}/library"
+    >Library</a
+  >
+  <div id="user-lists">
+    <a
+      *ngFor="let list of listItems; let i = index"
+      routerLink="/user-profile/{{ loginService.getLoginID() }}/lists"
+    >
+      <h3>
+        loginService
+        {{ list.name }}
+      </h3>
+    </a>
+  </div>
 
+  <div id="user-followers"></div>
 
+  <div id="user-following"></div>
+</div>
