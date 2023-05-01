@@ -1,4 +1,16 @@
 <div class="signup-container">
+  <div id="password-creation-rules">
+    <h2>Passord creation rules</h2>
+    <div>
+      The password must contain:
+      <ul>
+        <li>8 characters or more </li>
+        <li>1 number</li>
+        <li>1 uppercased letter</li>
+        <li>1 lowercased letter</li>
+      </ul>
+    </div>
+  </div>
   <div class="form-container">
     <h2>Signup</h2>
     <form #signForm="ngForm" (ngSubmit)="onSubmit(signForm)">
