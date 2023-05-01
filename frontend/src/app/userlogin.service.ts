@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
-import { userlogin } from './userlogin';
+import { User } from './user';
 import { MessageService } from './service/message.service';
 
 @Injectable({
@@ -12,7 +12,7 @@ import { MessageService } from './service/message.service';
 })
 export class UserloginService {
 
-  private userLoginurl = 'api/signup';  // URL to web api
+  private usersUrl = 'api/users';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -23,10 +23,10 @@ export class UserloginService {
     private http: HttpClient) { }
 
   /** POST: add a new userlogin to the server */
-  addUserLogin(userlogin: userlogin): Observable<userlogin> {
-    return this.http.post<userlogin>(this.userLoginurl, userlogin, this.httpOptions).pipe(
-      tap((newUserLogin: userlogin) => this.log(`added userlogin w/ username=${newUserLogin.name}`)),
-      catchError(this.handleError<userlogin>('addUserLogin'))
+  addUser(user: User): Observable<User> {
+    return this.http.post<User>(this.usersUrl, user, this.httpOptions).pipe(
+      tap((newUser: User) => this.log(`added user w/ username=${newUser.name}`)),
+      catchError(this.handleError<User>('addUser'))
     );
   }
 
