@@ -16,7 +16,10 @@ const mongoose = require("mongoose");
 mongoose instanceof mongoose.Mongoose; // true
 mongoose.set('strictQuery', false);
 const m = new mongoose.Mongoose();
-const mongoDB = "mongodb+srv://tiagomg7fernandes:mBTQcpcGgtJeLuDj@locallibrary.kxp3fjt.mongodb.net/my_database?retryWrites=true&w=majority";
+//const mongoDB = "mongodb+srv://tiagomg7fernandes:mBTQcpcGgtJeLuDj@locallibrary.kxp3fjt.mongodb.net/my_database?retryWrites=true&w=majority";
+const mongoDB = "mongodb://psi031:psi031@localhost:27017/psi031?retryWrites=true&authSource=psi031";
+
+
 main().catch(err => console.log(err));
 async function main() {
   await mongoose.connect(mongoDB);
