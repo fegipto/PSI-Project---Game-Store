@@ -8,12 +8,11 @@ import { FollowingComponent } from './following/following.component';
 import { LibraryComponent } from './library/library.component';
 import { ItemsSearchComponent } from './items-search/items-search.component';
 import { UserLoginComponent } from './user-login/user-login.component';
-import { LoginComponent } from './login/login.component';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
 
+
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'signup', component: UserLoginComponent },
   { path: 'user-profile/:id', component: UserProfileComponent },
@@ -23,7 +22,6 @@ const routes: Routes = [
   { path: 'user-profile/:id/library', component: LibraryComponent },
   { path: 'items/:name', component: ItemDetailComponent},
   { path: 'itemsdetail/:id', component: ItemDetailComponent},
-  //{ path: 'userlogin', component: UserLoginComponent},
 ];
 
 @NgModule({

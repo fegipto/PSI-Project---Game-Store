@@ -3,25 +3,25 @@
   <div
     id="user-img"
     style="
-      background-image: url(https://yt3.ggpht.com/ytc/AGIKgqOSWK9LIZ9xGvDbBZ7gjBK1ayNCxK0jKMOq1FirfA=s48-c-k-c0x00ffffff-no-rj);
+      background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.DWuM1QrYe4_4_ZpEVLkwyQHaHa%26pid%3DApi&f=1&ipt=1fd927004889457c21ca4ebe46c8b2437c2e34713e238972c884156712557685&ipo=images);
     "
   ></div>
-  <a id="user-library" routerLink="/user-profile/{{ this.user?.id }}/library"
-    >Library</a
-  >
+  <a id="user-library" routerLink="/user-profile/{{ this.user?.id }}/library">
+    <img
+      src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fclipground.com%2Fimages%2Fbookshelf-clipart-3.jpg&f=1&nofb=1&ipt=a96cbcfa3c59e51e83edbb2f0af8b627034d3dd26762b6d16f3c2fd9f804c67d&ipo=images"
+      alt="Library"
+  /></a>
   <div id="user-lists">
-    <a
-      *ngFor="let list of listItems; let i = index"
-      routerLink="/user-profile/{{ loginService.getLoginID() }}/lists"
-    >
-      <h3>
-        loginService
-        {{ list.name }}
-      </h3>
-    </a>
+    <div class="list-menu">
+      <app-lists></app-lists>
+    </div>
   </div>
 
-  <div id="user-followers"></div>
+  <div id="user-followers">
+    <app-followers></app-followers>
+  </div>
 
-  <div id="user-following"></div>
+  <div id="user-following">
+    <app-following></app-following>
+  </div>
 </div>

@@ -17,6 +17,7 @@ import { ItemDetailComponent } from './item-detail/item-detail.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { LoginComponent } from './login/login.component';
 import { UserloginService } from './service/userlogin.service';
+import { LoginService } from './service/login.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import { UserloginService } from './service/userlogin.service';
       InMemoryDataService, { dataEncapsulation: false }
     )*/
   ],
-  providers: [UserService, ItemService, UserloginService],
+  providers: [UserService, ItemService, UserloginService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
