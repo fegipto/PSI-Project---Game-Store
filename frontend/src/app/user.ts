@@ -3,8 +3,9 @@ import { Item } from "./item";
 export interface User {
     id: number;
     name: string;
-    lists: {"Default": Item[]};
-    library: {"Default": Item[]};
-    following: User[];
-    followers: User[];
+    password: string,
+    lists: {"Default": Item[]} | undefined;
+    library: {"Default": Item[]} | undefined;
+    following: User[] | undefined;
+    followers: User[] | undefined;
   }

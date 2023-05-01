@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
       this.cookieService.set("loggedIn", "true");
       this.cookieService.set("userID",  String(user.id));
 
-      window.location.assign("dashboard");
+      window.location.assign('/dashboard');
     });
   }
 

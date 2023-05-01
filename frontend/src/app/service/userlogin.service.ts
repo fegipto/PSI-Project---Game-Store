@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
-import { userlogin } from '../userlogin';
+import { User } from '../user';
 import { MessageService } from './message.service';
 
 @Injectable({
@@ -23,10 +23,10 @@ export class UserloginService {
     private http: HttpClient) { }
 
   /** POST: add a new userlogin to the server */
-  addUserLogin(userlogin: userlogin): Observable<userlogin> {
-    return this.http.post<userlogin>("${this.userLoginurl}/signup", userlogin, this.httpOptions).pipe(
-      tap((newUserLogin: userlogin) => this.log(`added userlogin w/ username=${newUserLogin.name}`)),
-      catchError(this.handleError<userlogin>('addUserLogin'))
+  addUser(user: User): Observable<User> {
+    return this.http.post<User>("${this.userLoginurl}/users", user, this.httpOptions).pipe(
+      tap((newUser: User) => this.log(`added user w/ username=${newUser.name}`)),
+      catchError(this.handleError<User>('addUser'))
     );
   }
 
