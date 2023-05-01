@@ -31,7 +31,7 @@ import { LoginService } from './service/login.service';
     ItemsSearchComponent,
     ItemDetailComponent,
     UserLoginComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

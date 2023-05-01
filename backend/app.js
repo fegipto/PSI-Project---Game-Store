@@ -21,6 +21,7 @@ main().catch(err => console.log(err));
 async function main() {
   await mongoose.connect(mongoDB);
   await m.createConnection(mongoDB).dropCollection("users");
+  await m.createConnection(mongoDB).dropCollection("items");
 
 }
 

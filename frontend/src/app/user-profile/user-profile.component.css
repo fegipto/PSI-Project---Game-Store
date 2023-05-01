@@ -32,24 +32,32 @@ select {
 }
 
 #profile-container {
-  margin-left: 210px;
+  margin-left: 210px; /* Changed from 210px to 460px */
   padding: 5%;
   display: grid;
-
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 2fr 1fr repeat(1fr);
   gap: 10px;
 }
 
-#profile-container> {
+#profile-container > * {
   padding: 10px;
   border: 1px solid gray;
   border-radius: 10px;
   margin: 0;
 }
+.user-menu-submenu-lists{
+  margin-right: 430px;
+}
+.user-menu-submenu-followers{
+  margin-right: 350px;
+}
+.user-menu-submenu-following{
+  margin-right: 350px;
+}
 
 #user-name {
-  grid-column: 1/ span 2;
+  grid-column: 1 / span 2;
 }
 
 #user-img {
@@ -59,32 +67,29 @@ select {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
-  background-image: url("/images/callofduty.jpg");
-
 }
 
 #user-library {
-  display: flex;
-  justify-content: center;
+  margin-right: 400px;
+  justify-content: left;
 }
 
 #user-lists {
-  justify-content: center;
+  
+  justify-content: left;
   grid-column: 1 / 3;
   grid-row: 3;
   gap: 20px; 
 }
 
-
 .list-menu {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 1rem; /* Increase gap value */
+  gap: 1rem;
 }
 
-
-.list-menu > {
+.list-menu > * {
   padding: 10px;
   border: 1px solid gray;
   border-radius: 1em;

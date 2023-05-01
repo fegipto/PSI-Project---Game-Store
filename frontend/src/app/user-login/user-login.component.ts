@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { User } from '../user';
 import { UserloginService } from '../service/userlogin.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-user-login',
@@ -9,40 +10,34 @@ import { UserloginService } from '../service/userlogin.service';
   styleUrls: ['./user-login.component.css']
 })
 export class UserLoginComponent {
+  userId = Math.random();
+  username = '';
+  password = '';
 
-  userId: number = Math.random();
-  username: String = "";
-  password: String = "";
+  constructor(private location: Location, private userLoginService: UserloginService) {}
 
-  constructor(private userLoginService: UserloginService) {}
+  onSubmit(form: NgForm): void {
+    this.username = form.value.username.trim();
+    this.password = form.value.password.trim();
 
-  onSubmit(form: NgForm) {
-    this.username = form.value.username;
-    this.username = this.username.trim();
-    this.password = form.value.password;
-
-    if(!this.password.match("^.*(([a-z]+.*[A-Z]+.*[0-9]+)|([A-Z]+.*[a-z]+.*[0-9]+)|([A-Z]+.*[0-9]+.*[a-z]+)|([a-z]+.*[0-9]+.*[A-Z]+)|([0-9]+.*[a-z]+.*[A-Z]+)|([0-9]+.*[A-Z]+.*[a-z]+)).*$")) {
-      alert("The password should contain at least 1 Uppercased letter, 1 lowercased letter and 1 number.");
+    if (!this.password.match(/^.*(([a-z]+.*[A-Z]+.*[0-9]+)|([A-Z]+.*[a-z]+.*[0-9]+)|([A-Z]+.*[0-9]+.*[a-z]+)|([a-z]+.*[0-9]+.*[A-Z]+)|([0-9]+.*[a-z]+.*[A-Z]+)|([0-9]+.*[A-Z]+.*[a-z]+)).*$/)) {
+      alert('The password should contain at least 1 uppercase letter, 1 lowercase letter, and 1 number.');
       return;
     }
-    if(this.password.length < 8) {
-      alert("The password should contain at least 8 characters.");
+    if (this.password.length < 8) {
+      alert('The password should contain at least 8 characters.');
       return;
     }
-    /* if(!this.username.match("^[a-zA-Z0-9]$")) {
-      alert(this.username)
-      alert("Name can only use alphanumeric characters");
-      return;
-    } */
-    if(this.username.length < 3) {
-      alert("Name must have at least 3 characters");
+    if (this.username.length < 3) {
+      alert('Name must have at least 3 characters.');
       return;
     }
 
-    if (!this.username) { return; }
-    if (!this.password) { return; }
-    this.userLoginService.addUser({ id: this.userId, name: this.username, password: this.password } as User)
-      .subscribe();
-    window.location.assign("login");
+    this.userLoginService.addUser({ name: this.username, password: this.password } as User).subscribe();
+    window.location.assign('login');
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }

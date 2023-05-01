@@ -17,6 +17,7 @@ export class UserProfileComponent implements OnInit {
   listItems: ListItems[] = [];
   followers: User[] = [];
   following: User[] = [];
+  images: any[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -56,6 +57,17 @@ export class UserProfileComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  decodeImages(): void {
+    if (this.user !== undefined) {
+        const blob = new Blob([this.user.imagens.data], { type: this.user.imagens.contentType });
+        const reader = new FileReader();
+        reader.onload = () => {
+          this.images.push(reader.result);
+        };
+        reader.readAsDataURL(blob);
+    }
   }
 
 }

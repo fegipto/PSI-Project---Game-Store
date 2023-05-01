@@ -10,8 +10,6 @@ const loginController = require('../controllers/loginController');
 /* GET home page. */
 router.get("/", mainController.init);
 
-router.post("/signup", userLoginController.userlogin_create_post);
-
 router.get("/users/:id", userController.find_User);
 
 router.get("/users/:id/lists", userController.users_list);
@@ -28,6 +26,6 @@ router.get("/itemsdetail/:id", itemController.find_Item);
 
 router.get("/login/:name/:password", loginController.try_login);
 
-router.post("/signup", userLoginController.userlogin_create_post);
+router.post("/signup", userLoginController.userlogin);
 
 module.exports = router;

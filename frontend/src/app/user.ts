@@ -8,4 +8,8 @@ export interface User {
     library: {"Default": Item[]} | undefined;
     following: User[] | undefined;
     followers: User[] | undefined;
+    imagens: {
+      data: string;
+      contentType: string;
+    };
   }

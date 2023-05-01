@@ -1,7 +1,4 @@
-{
-  "name": "angular-tour-of-heroes",
-  "version": "0.0.0",
-  "scripts": {
+{  "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",

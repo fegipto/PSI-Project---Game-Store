@@ -24,7 +24,7 @@ export class UserloginService {
 
   /** POST: add a new userlogin to the server */
   addUser(user: User): Observable<User> {
-    return this.http.post<User>("${this.userLoginurl}/users", user, this.httpOptions).pipe(
+    return this.http.post<User>(`${this.userLoginurl}/signup`, user).pipe(
       tap((newUser: User) => this.log(`added user w/ username=${newUser.name}`)),
       catchError(this.handleError<User>('addUser'))
     );

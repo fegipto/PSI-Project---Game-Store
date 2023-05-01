@@ -43,6 +43,7 @@ async function createUsers() {
             [await Item.where('id', 1).findOne(), await Item.where('id', 2).findOne()],
             [await User.where('id', 1).findOne()],
             [await User.where('id', 1).findOne()],
+            [{ data: imageData, contentType: 'image/jpg' }],
             ),
         userCreate(3,
             "Huckleberry", 

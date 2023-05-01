@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { MessageService } from '../service/message.service';
@@ -13,7 +13,7 @@ import { CookieService } from 'ngx-cookie-service';
 @Injectable({
   providedIn: 'root',
 })
-export class LoginService {
+export class LoginService  {
   uri = 'http://localhost:3031';
 
   constructor(
@@ -22,11 +22,14 @@ export class LoginService {
     private cookieService: CookieService
   ) {}
 
+
+
   isLoggedIn(): boolean {
     const loggedIn = this.cookieService.get("loggedIn");
     const userID = Number(this.cookieService.get("userID"));
 
-    if (loggedIn === "true" && (userID >= 0 && !isNaN(userID))) {
+    //if (loggedIn === "true" && (userID >= 0 && !isNaN(userID))) {
+    if (loggedIn === "true"){
       return true;
     }
 

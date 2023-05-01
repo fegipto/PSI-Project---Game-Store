@@ -1,10 +1,10 @@
 .login-container {
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Change start to flex-start */
+  align-items: flex-start; 
   margin-top: 5em;
   font-size: x-large;
-}cd
+}
 
 h2 {
   margin: 0;
@@ -47,7 +47,7 @@ h2 {
 .form-group>div {
   width: 95%;
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   justify-content: flex-start;
 }
 

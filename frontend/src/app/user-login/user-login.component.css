@@ -1,7 +1,7 @@
 .signup-container {
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
   margin-top: 5em;
   font-size: x-large;
 }
@@ -10,6 +10,7 @@ h2 {
   margin: 0;
   margin-bottom: 15px;
 }
+
 
 .form-container, #password-creation-rules {
   min-width: 300px;
@@ -35,25 +36,6 @@ h2 {
   justify-content: space-evenly;
 }
 
-.form-group {
-  border-radius: 1em;
-  padding: 0.75em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1px solid rgba(128, 128, 128, 0);
-  transition: border-color 200ms ease-in;
-}
-
-.form-group:hover, .form-group:focus-within  {
-  border: 1px solid #ccc;
-}
-
-.form-group>div {
-  width: 95%;
-  display: flex;
-  align-items: start;
-}
 
 label {
   display: block;
@@ -71,15 +53,11 @@ input {
   padding-right: 0.5em;
   height: 2em;
   outline: none;
-
   font-size: x-large;
-
 }
 
-input:focus {
-}
 
-button {
+.create-button {
   display: block;
   width: 100%;
   padding: 5px;
@@ -95,16 +73,16 @@ button {
   border: 2px solid #ffffff00;
 }
 
-button:hover, button:focus {
-  background-color: rgb(37, 44, 75);
-}
-
-button:focus {
-  border: 2px solid #ccc;
-}
-
 .form-container > form {
   display: flex;
   flex-direction: column;
   gap: 0.5em;
+}
+
+.back-button {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 50px;
+  margin-left: 200px;
 }

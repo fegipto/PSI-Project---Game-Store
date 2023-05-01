@@ -1,18 +1,18 @@
 <div class="signup-container">
   <div id="password-creation-rules">
-    <h2>Passord creation rules</h2>
+    <h2>Password creation rules</h2>
     <div>
       The password must contain:
       <ul>
-        <li>8 characters or more </li>
+        <li>8 characters or more</li>
         <li>1 number</li>
-        <li>1 uppercased letter</li>
-        <li>1 lowercased letter</li>
+        <li>1 uppercase letter</li>
+        <li>1 lowercase letter</li>
       </ul>
     </div>
   </div>
   <div class="form-container">
-    <h2>Signup</h2>
+    <h2>Sign up</h2>
     <form #signForm="ngForm" (ngSubmit)="onSubmit(signForm)">
       <div class="form-group">
         <div>
@@ -38,7 +38,10 @@
           required
         />
       </div>
-      <button type="submit">Create</button>
+      <button class="create-button" type="submit">Create</button>
     </form>
   </div>
 </div>
+
+<button class="back-button" type="button" (click)="goBack()">Go back</button>
+
