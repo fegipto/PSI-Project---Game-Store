@@ -28,12 +28,17 @@ export class UserLoginComponent {
       alert('The password should contain at least 8 characters.');
       return;
     }
+    if (!this.username.match(/^([a-zA-Z0-9]*)$/)) {
+      alert('The username must only have alphanumeric characters.');
+      return;
+    }
     if (this.username.length < 3) {
       alert('Name must have at least 3 characters.');
       return;
     }
 
     this.userLoginService.addUser({ name: this.username, password: this.password } as User).subscribe();
+    alert('Account successfully created.')
     window.location.assign('login');
   }
 
