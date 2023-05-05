@@ -12,5 +12,6 @@ export interface Item {
       data: string;
       contentType: string;
     }[];
+    date:Date;
     video:string;
 }

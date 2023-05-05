@@ -24,13 +24,41 @@ export class LibraryComponent {
   ngOnInit(): void {
     this.getLibrary();
   }
+
   getLibrary(): void {
     this.userService.getLibrary()
       .subscribe(items => this.items= items);
   }
 
+  orderByName(): void {
+    this.items.sort(function (a,b) {
+      if (a.name < b.name) {
+        return -1;
+      }
+      else if (a.name == b.name) {
+        return 0;
+      } 
+      else {
+        return 1;
+      }
+    })
+  }
+
+  orderByDate(): void {
+    this.items.sort(function (a,b) {
+      if (a.date < b.date) {
+        return -1;
+      }
+      else if (a.date == b.date) {
+        return 0;
+      } 
+      else {
+        return 1;
+      }
+    })
+  }
+
   goBack(): void {
     this.location.back();
   }
-
 }

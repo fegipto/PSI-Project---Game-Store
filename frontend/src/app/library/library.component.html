@@ -2,7 +2,9 @@
 <div class="library-menu">
   <a *ngFor="let item of items"
       routerLink="/itemsdetail/{{item.id}}"> 
-      {{item.name}}
+      Item: {{item.name}} <br> Date of Acquisition: {{item.date}}
   </a>
 </div>
+<div class="nameorder_button"> <button type="button" (click)="orderByName()">order by name</button></div>
+<div class="dateorder_button"> <button type="button" (click)="orderByDate()">order by date</button></div>
 <div class="back_button"> <button type="button" (click)="goBack()">go back</button></div>
