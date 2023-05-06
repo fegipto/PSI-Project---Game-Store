@@ -13,6 +13,7 @@ const ItemSchema = new Schema({
   preco: { type: String, required: true, maxLength: 100 },
   classificacao: { type: String, required: true, maxLength: 100 },
   avaliacoes: { type: String, required: true, maxLength: 100 },
+  date: { type: Date, required: false },
   imagens: {
     type: [{ data: Buffer, contentType: String }], 
     required: true,
