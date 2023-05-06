@@ -1,9 +1,11 @@
 .signup-container {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   margin-top: 5em;
   font-size: x-large;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 h2 {
@@ -13,7 +15,8 @@ h2 {
 
 
 .form-container, #password-creation-rules {
-  min-width: 300px;
+  min-width: 320px;
+  max-width: 400px;
   width: 20%;
   background-color: #fff;
   padding: 20px;
@@ -25,9 +28,8 @@ h2 {
   height: 100%
 }
 
-#password-creation-rules {
-  position: relative;
-  right: 200px;
+#password-creation-rules span{
+  width: max-content;
 }
 
 .form-container > form {
@@ -57,7 +59,7 @@ input {
 }
 
 
-.create-button {
+.create-button, .form-container > a {
   display: block;
   width: 100%;
   padding: 5px;
@@ -73,10 +75,25 @@ input {
   border: 2px solid #ffffff00;
 }
 
+.create-button:hover, .create-button:focus {
+  background-color: rgb(37, 44, 75);
+}
+
+.create-button:focus {
+  border: 2px solid #ccc;
+}
+
+.form-container > a {
+  text-decoration: none;
+  font-size: inherit;
+
+}
+
 .form-container > form {
   display: flex;
   flex-direction: column;
   gap: 0.5em;
+  padding-bottom: 10px;
 }
 
 .back-button {
