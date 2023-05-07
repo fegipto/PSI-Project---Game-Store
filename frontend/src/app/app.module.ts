@@ -18,7 +18,6 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { LoginComponent } from './login/login.component';
 import { UserloginService } from './service/userlogin.service';
 import { LoginService } from './service/login.service';
-import { CarrinhoComprasComponent } from './carrinho-compras/carrinho-compras.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +32,6 @@ import { CarrinhoComprasComponent } from './carrinho-compras/carrinho-compras.co
     ItemDetailComponent,
     UserLoginComponent,
     LoginComponent,
-    CarrinhoComprasComponent,
   ],
   imports: [
     BrowserModule,
