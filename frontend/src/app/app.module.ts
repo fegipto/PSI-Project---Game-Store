@@ -18,6 +18,9 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { LoginComponent } from './login/login.component';
 import { UserloginService } from './service/userlogin.service';
 import { LoginService } from './service/login.service';
+import { CartService } from './service/cart.service';
+import { CartComponent } from './cart/cart.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,7 @@ import { LoginService } from './service/login.service';
     ItemDetailComponent,
     UserLoginComponent,
     LoginComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,7 @@ import { LoginService } from './service/login.service';
       InMemoryDataService, { dataEncapsulation: false }
     )*/
   ],
-  providers: [UserService, ItemService, UserloginService, LoginService],
+  providers: [UserService, ItemService, UserloginService, LoginService, CartService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -19,3 +19,9 @@ exports.find_Item =  async (req, res) => {
   const result = await query.findOne();
   res.send(result);
 };
+
+exports._find_Item=  async (req, res) => {
+  const query = Item.where('_id', req.params.id);
+  const result = await query.findOne();
+  res.send(result);
+};

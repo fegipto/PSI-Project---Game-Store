@@ -15,8 +15,8 @@ const mongoDB = "mongodb+srv://tiagomg7fernandes:mBTQcpcGgtJeLuDj@locallibrary.k
 users = []
 items = []
 
-async function userCreate(id, name, lists, library, followers, following) {
-    userdetail = { id: id, name:name, lists:lists, library:library, followers:followers, following:following, password: '123'};
+async function userCreate(id, name, lists, library, followers, following, images, cart) {
+    userdetail = { id: id, name:name, lists:lists, library:library, followers:followers, following:following, password: '123', imagens:images, cart:cart};
     const user = new User(userdetail);
     users.push(user);
     await user.save();
@@ -34,7 +34,9 @@ async function createUsers() {
                       {name:"lista2", values: [await Item.where('id', 3).findOne(), await Item.where('id', 2).findOne()]}],
             [await Item.where('id', 1).findOne(), await Item.where('id', 2).findOne()],
             [],
-            []
+            [],
+            [],
+            new Map()
             ),
         userCreate(2,
             "Tom", 
@@ -44,6 +46,7 @@ async function createUsers() {
             [await User.where('id', 1).findOne()],
             [await User.where('id', 1).findOne()],
             [{ data: imageData, contentType: 'image/jpg' }],
+            new Map()
             ),
         userCreate(3,
             "Huckleberry", 
@@ -52,6 +55,8 @@ async function createUsers() {
             [await Item.where('id', 1).findOne(), await Item.where('id', 2).findOne()],
             [await User.where('id', 1).findOne(), await User.where('id', 2).findOne()],
             [await User.where('id', 1).findOne(), await User.where('id', 2).findOne()],
+            [{ data: imageData, contentType: 'image/jpg' }],
+            new Map(),
             ),
         userCreate(4,
             "Amy", 
@@ -60,6 +65,8 @@ async function createUsers() {
             [await Item.where('id', 1).findOne(), await Item.where('id', 2).findOne()],
             [await User.where('id', 3).findOne(), await User.where('id', 2).findOne()],
             [await User.where('id', 3).findOne(), await User.where('id', 2).findOne()],
+            [{ data: imageData, contentType: 'image/jpg' }],
+            new Map(),
             ),
     ]);
 }
@@ -92,8 +99,8 @@ const item1 = new Item({
   preco: 49.99,
   classificacao: 'E',
   avaliacoes: 4.5,
-  imagens: [{ data: imageData, contentType: 'image/jpg' }],
-  video: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+  imagens: [{ data: imageData, contentType: 'image/jpg;base64' }],
+  video: 'https://www.youtube.com/watch?v=oJca6zoI50E&pp=ygUUY2FsbCBvZiBkdXR5IHRyYWlsZXI%3D',
 });
 
 const item2 = new Item({

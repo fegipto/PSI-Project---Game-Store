@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { ItemService } from '../service/item.service';
+import { CartService } from '../service/cart.service';
+import { CookieService } from 'ngx-cookie-service';
 import { Item } from '../item';
 
 @Component({
@@ -11,17 +13,39 @@ import { Item } from '../item';
 })
 export class ItemDetailComponent implements OnInit {
   item: Item | undefined;
+  itemToCart: Item = {
+    id: 0,
+    name: '',
+    preco: 0,
+    descricao: '',
+    tipo: '',
+    plataforma: '',
+    idiomas: '',
+    classificacao: '',
+    avaliacoes: 0,
+    imagens: [],
+    video: ''
+  };
   selectedOption: String = "";
   images: any[] = [];
 
   constructor(
     private route: ActivatedRoute,
     private itemService: ItemService,
-    private location: Location
+    private location: Location,
+    private cartService: CartService,
   ) {}
 
   ngOnInit(): void {
     this.getItem();
+  }
+
+  setItemToCart(){
+    if (this.item !== undefined) {
+        this.itemToCart.id = this.item.id,
+        this.itemToCart.name = this.item.name;
+        this.itemToCart.preco = this.item.preco;
+      };   
   }
 
   getItem(): void {
@@ -29,7 +53,9 @@ export class ItemDetailComponent implements OnInit {
     this.itemService.getItem(id).subscribe(item => {
       this.item = item;
       this.decodeImages();
+      this.setItemToCart();
     });
+
   }
 
   decodeImages(): void {
@@ -47,5 +73,12 @@ export class ItemDetailComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+  
+
+  addItemCart(item: Item) {
+    if (item) {
+      this.cartService.addItemCartCookie(item);
+    }
   }
 }

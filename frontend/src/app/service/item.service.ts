@@ -70,5 +70,13 @@ getItem(id: Number): Observable<Item>{
         catchError(this.handleError<Item>('getId', ))
       );
 } 
+
+_getItem(id: String): Observable<Item>{
+  return this.http.get<Item>(`${this.uri}/_itemsdetail/${id}`)
+      .pipe(
+        catchError(this.handleError<Item>('_getId', ))
+      );
+} 
+
   
 }
