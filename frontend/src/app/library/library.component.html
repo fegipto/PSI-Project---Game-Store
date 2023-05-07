@@ -4,10 +4,10 @@
       routerLink="/itemsdetail/{{item.id}}"> 
       Item: {{item.name}} <br> Date of Acquisition: {{item.date}}
   </a>
-  <div *ngIf="items.length>0">
-    <button type="button" (click)="orderByName()">order by name</button>
-    <button type="button" (click)="orderByDate()">order by date</button>
-  </div>
   <div *ngIf="items.length==0">There are no Items.</div>
+</div>
+<div *ngIf="items.length>0">
+  <button type="button" (click)="orderByName()">order by name</button>
+  <button type="button" (click)="orderByDate()">order by date</button>
 </div>
 <div class="back_button"><button type="button" (click)="goBack()">go back</button></div>
