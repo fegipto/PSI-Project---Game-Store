@@ -4,7 +4,7 @@
       routerLink="/itemsdetail/{{item.id}}"> 
       Item: {{item.name}} <br> Date of Acquisition: {{item.date}}
   </a>
-  <div *ngIf="items.length==0">There are no Items.</div>
+  <div *ngIf="items.length==0" class="noItems">There are no Items.</div>
 </div>
 <div *ngIf="items.length>0">
   <button type="button" (click)="orderByName()">order by name</button>
