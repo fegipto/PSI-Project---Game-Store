@@ -23,18 +23,18 @@ h2 {
     align-items: flex-start;
   }
 
-  .noItems {
+  .no_items {
     text-align: left;
   }
   
   a {
     background-color: #3f525c;
+    color: rgb(255,255,255);
     border-radius: 2px;
     padding: 1rem;
-    font-size: 1.0rem;
+    font-size: 1rem;
     text-decoration: none;
     display: inline-block;
-    color: #fff;
     text-align: center;
     width: 100%;
     min-width: 70px;

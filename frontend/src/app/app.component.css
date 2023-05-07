@@ -7,8 +7,7 @@ h2 {
 
 .store {
   color: rgb(0, 255, 0);
-  margin-bottom: 0.25em;
-  margin-left: -0.25em;
+  padding-right: 0.1em;
   text-align: center;
 }
 
