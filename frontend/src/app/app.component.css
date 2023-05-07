@@ -5,6 +5,12 @@ h1 {
   margin-bottom: 0.25em;
 }
 
+.store {
+  color: rgb(255, 0, 0);
+  margin-bottom: 0.25em;
+  font-size: larger;
+}
+
 .leftnav {
   padding-left: 30px;
   height: 100%;
