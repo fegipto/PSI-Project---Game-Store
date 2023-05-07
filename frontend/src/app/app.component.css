@@ -1,14 +1,14 @@
 /* AppComponent's private CSS styles */
 
-h1 {
+h2 {
   color: rgb(255, 253, 253);
   margin-bottom: 0.25em;
 }
 
 .store {
-  color: rgb(255, 0, 0);
+  color: rgb(0, 255, 0);
   margin-bottom: 0.25em;
-  font-size: larger;
+  text-align: center;
 }
 
 .leftnav {

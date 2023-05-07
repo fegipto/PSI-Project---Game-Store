@@ -92,6 +92,7 @@ const item1 = new Item({
   preco: 49.99,
   classificacao: 'E',
   avaliacoes: 4.5,
+  date: 5-1-2021,
   imagens: [{ data: imageData, contentType: 'image/jpg' }],
   video: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
 });
@@ -106,6 +107,7 @@ const item2 = new Item({
   preco: 9.99,
   classificacao: 'M',
   avaliacoes: 3.2,
+  date: 5-1-2022,
   imagens: [{ data: Buffer.from('image2'), contentType: 'image/png' }, { data: Buffer.from('image3'), contentType: 'image/png' }],
 });
 
@@ -119,6 +121,7 @@ const item3 = new Item({
   preco: 14.99,
   classificacao: 'T',
   avaliacoes: 4.7,
+  date: 5-3-2021,
   imagens: [{ data: Buffer.from('image4'), contentType: 'image/png'
     }],
     video: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
