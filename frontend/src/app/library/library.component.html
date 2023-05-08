@@ -4,10 +4,9 @@
       routerLink="/itemsdetail/{{item.id}}"> 
       Item: {{item.name}} <br> Date of Acquisition: {{item.date}}
   </a>
-  <div *ngIf="items.length==0" class="no_items">You have not acquired or been given any items yet.</div>
+  <p *ngIf="items.length==0" class="no_items">You have not acquired or been given any items yet.</p>
 </div>
-<div *ngIf="items.length>0">
-  <button type="button" (click)="orderByName()" class="name_button">order by name</button>
-  <button type="button" (click)="orderByDate()" class="date_button">order by date</button>
-</div>
+<div *ngIf="items.length>0" class="order"><p>Choose how do you want to order your items:</p></div>
+<div *ngIf="items.length>0" class="name_button"><button type="button" (click)="orderByName()">order by name</button></div>
+<div *ngIf="items.length>0" class="date_button"><button type="button" (click)="orderByDate()">order by date</button></div>
 <div class="back_button"><button type="button" (click)="goBack()">go back</button></div>
