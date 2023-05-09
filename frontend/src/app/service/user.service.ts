@@ -65,8 +65,6 @@ export class UserService {
   private log(message: string) {
     this.messageService.add(`UserService: ${message}`);
   }
- 
-
   /**
  * Handle Http operation that failed.
  * Let the app continue.
@@ -147,5 +145,5 @@ addUser(User: User): Observable<User> {
     catchError(this.handleError<User>('addUser'))
   );
 }
-  
+
 }
