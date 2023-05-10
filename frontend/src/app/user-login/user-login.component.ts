@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { User } from '../user';
 import { UserloginService } from '../service/userlogin.service';
@@ -9,12 +9,21 @@ import { Location } from '@angular/common';
   templateUrl: './user-login.component.html',
   styleUrls: ['./user-login.component.css']
 })
-export class UserLoginComponent {
-  userId = Math.random();
+export class UserLoginComponent implements OnInit {
   username = '';
   password = '';
+  usersNames: String[] = [];
 
   constructor(private location: Location, private userLoginService: UserloginService) {}
+
+  ngOnInit(): void {
+    this.getUsersNames();
+  }
+
+  getUsersNames(): void {
+    this.userLoginService.getUsersNames()
+    .subscribe(usersNames => this.usersNames = usersNames);
+  }
 
   onSubmit(form: NgForm): void {
     this.username = form.value.username.trim();
@@ -36,9 +45,14 @@ export class UserLoginComponent {
       alert('Name must have at least 3 characters.');
       return;
     }
+    if (this.usersNames.includes(this.username)) {
+      alert('Name already in use. Please use a different one!');
+      return;
+    }
 
     this.userLoginService.addUser({ name: this.username, password: this.password } as User).subscribe();
-    alert('Account successfully created.')
+    this.usersNames.push(this.username);
+    alert('Account successfully created.');
     window.location.assign('login');
   }
 

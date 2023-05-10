@@ -12,7 +12,7 @@ import { MessageService } from './message.service';
 })
 export class UserloginService {
 
-  private userLoginurl = "http://localhost:3031"; // URL to web api
+  private uri = "http://localhost:3031"; // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -24,9 +24,16 @@ export class UserloginService {
 
   /** POST: add a new userlogin to the server */
   addUser(user: User): Observable<User> {
-    return this.http.post<User>(`${this.userLoginurl}/signup`, user).pipe(
+    return this.http.post<User>(`${this.uri}/signup`, user).pipe(
       tap((newUser: User) => this.log(`added user w/ username=${newUser.name}`)),
       catchError(this.handleError<User>('addUser'))
+    );
+  }
+
+  getUsersNames(): Observable<String[]> {
+    return this.http.get<String[]>(`${this.uri}/usernames`)
+    .pipe(
+      catchError(this.handleError<String[]>('getUsersNames', []))
     );
   }
 
