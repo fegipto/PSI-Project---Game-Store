@@ -60,25 +60,24 @@ h2 {
   }
 
   .order {
-    position: relative;
+    position: fixed;
     bottom: 0;
-    left: 0;
-    margin-bottom: 250px;
-    margin-right: 250px;
+    left: 200px;
+    margin-bottom: 150px;
+    margin-left: 50px;
   }
 
   .date_button{
     position: fixed;
     bottom: 0;
-    left: 0;
-    margin-bottom: 50px;
-    margin-right: 250px;
+    left: 225px;
+    margin-bottom: 100px;
+    margin-left: 50px;
   }
 
   .name_button{
     position: fixed;
     bottom: 0;
-    left: 0;
-    margin-bottom: 150px;
-    margin-right: 250px;
+    left: 225px;
+    margin: 50px;
   }
