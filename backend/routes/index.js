@@ -26,7 +26,7 @@ router.get("/itemsdetail/:id", itemController.find_Item);
 
 router.get("/login/:name/:password", loginController.try_login);
 
-router.get("/usernames", userLoginController.users_names);
+router.get("/usernames", userLoginController.usersnames);
 
 router.post("/signup", userLoginController.userlogin);
 

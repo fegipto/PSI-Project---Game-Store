@@ -1,16 +1,13 @@
 const User = require("../models/User");
 
-exports.users_names = function (req, res, next) {
-  User.find({}, "name")
-    .populate("name")
-    .exec(function (err, list_users) {
-      if (err) {
-        return next(err);
-      }
-      res.send(list_users.map(function (x) {
-        return x.name;
-      }));
-    });
+exports.usersnames = async function (req, res, next) {
+  const query = User.find({}, "id name")
+    .sort({ id: 1 })
+    .populate("name");
+  const result = query.find();
+  res.send((await result).map(function (x) {
+    return x.name;
+  }));
 }
 
 exports.userlogin = (req, res) => {
