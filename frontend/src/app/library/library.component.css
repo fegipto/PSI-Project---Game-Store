@@ -62,7 +62,7 @@ h2 {
   .order {
     position: fixed;
     bottom: 0;
-    left: 200px;
+    left: 210px;
     margin-bottom: 170px;
     margin-left: 50px;
   }
@@ -70,7 +70,7 @@ h2 {
   .date_button {
     position: fixed;
     bottom: 0;
-    left: 205px;
+    left: 215px;
     margin-bottom: 110px;
     margin-left: 50px;
   }
@@ -78,6 +78,6 @@ h2 {
   .name_button {
     position: fixed;
     bottom: 0;
-    left: 200px;
+    left: 210px;
     margin: 50px;
   }
