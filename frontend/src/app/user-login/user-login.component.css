@@ -73,6 +73,15 @@ input {
   border: 2px solid #ffffff00;
 }
 
+button:hover, button:focus {
+  background-color: rgb(37, 44, 75);
+  color: white;
+}
+
+button:focus {
+  border: 2px solid #ccc;
+}
+
 .form-container > form {
   display: flex;
   flex-direction: column;

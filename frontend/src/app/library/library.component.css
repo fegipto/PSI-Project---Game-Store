@@ -63,21 +63,21 @@ h2 {
     position: fixed;
     bottom: 0;
     left: 200px;
-    margin-bottom: 150px;
+    margin-bottom: 170px;
     margin-left: 50px;
   }
 
-  .date_button{
+  .date_button {
     position: fixed;
     bottom: 0;
-    left: 225px;
-    margin-bottom: 100px;
+    left: 205px;
+    margin-bottom: 110px;
     margin-left: 50px;
   }
 
-  .name_button{
+  .name_button {
     position: fixed;
     bottom: 0;
-    left: 225px;
+    left: 200px;
     margin: 50px;
   }
