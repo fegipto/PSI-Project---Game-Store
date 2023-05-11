@@ -9,23 +9,26 @@
      -->
 
     <ul id="items-container">
-        <li class="item" *ngFor="let item of Array(5)">
+        <li class="item" *ngFor="let item of this.items">
             <p class="item-name-type">
-                <span class="item-name">Item {{item + 1}}</span>
-                <span class="item-type">Type</span>
+                <span class="item-name">{{item.name}}</span>
+                <span class="item-type">{{item.tipo}}</span>
             </p>
-            <span class="item-price">{{(item + 1) * 10}} </span>
+            <span class="item-price">{{(item.preco * this.quantity).toFixed(2)}} </span>
             <div class="item-quantity-container">
-                <button class="quantity-button">-</button>
-                <span class="item-quantity">{{item + 1}}</span>
-                <button class="quantity-button">+</button>
+                <button class="quantity-button" (click)="decreaseAmount(item.id)">-</button>
+                <span class="item-quantity">{{quantity}}</span>
+                <button class="quantity-button" (click)="increaseAmount(item.id)">+</button>
             </div>
-            <button class="item-remove">X</button>
+            <button class="item-remove" (click)="removeItem(item.id)">X</button>
             
+        </li>
+        <li *ngIf="this.items.length === 0">
+            <h2>Empty Cart</h2>
         </li>
     </ul>
     <div id="checkout-area">
-        <span id="total-price">10</span>
+        <span id="total-price">{{getTotalPrice()}}</span>
         <button id="checkout-button">Checkout</button>
     </div>
 </div>
