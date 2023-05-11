@@ -24,7 +24,7 @@
         </li>
         <p><strong>Vídeo:</strong> <a href="{{item.video}}">{{item.video}}</a></p>
       </ul>
-      <a href="#" class="item-button">Buy Now</a>
+      <button class="item-button" (click)="this.addItemToCart(item.id)">Buy Now</button>
     </div>
   </div>
 </div>
