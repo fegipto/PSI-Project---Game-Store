@@ -46,7 +46,7 @@ export class UserLoginComponent implements OnInit {
       return;
     }
     if (this.usersNames.includes(this.username)) {
-      alert('Name already in use. Please use a different one!');
+      alert('Username already in use. Please use a different one!');
       return;
     }
 

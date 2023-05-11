@@ -1,14 +1,17 @@
 <h2>Library</h2>
 <div class="library-menu">
-  <a *ngFor="let item of items"
-      routerLink='/itemsdetail/{{item.id}}'> 
-      Item: {{item.name}}<br>Date of Acquisition: {{item.date}}
-  </a>
+  <ul *ngIf="items.length>0" class="list">
+    <li *ngFor="let item of items">
+      <a routerLink='itemsdetail/{{item.id}}'> 
+        Item: {{item.name}}<br>Date of Acquisition: {{item.date}}
+      </a>
+    </li>
+  </ul>
   <p *ngIf="items.length==0" class="no_items">You have not acquired or been given any items yet.</p>
 </div>
-<div *ngIf="items.length>0" class="options">
-  <div class="order"><p>Choose how do you want<br>to order your items:</p></div>
-  <div class="name_button"><button type="button" (click)="orderByName()">order by name</button></div>
-  <div class="date_button"><button type="button" (click)="orderByDate()">order by date</button></div>
+<div *ngIf="items.length>0">
+  <p class="order">Choose how do you want<br>to order your items:</p>
+  <button class="name_button" type="button" (click)="orderByName()">order by name</button>
+  <button class="date_button" type="button" (click)="orderByDate()">order by date</button>
 </div>
 <div class="back_button"><button type="button" (click)="goBack()">go back</button></div>

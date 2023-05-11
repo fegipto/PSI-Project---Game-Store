@@ -50,7 +50,7 @@ h2 {
     }
   }
   
-  a:hover {
+  a:hover, a:focus {
     background-color: #000;
   }
 
@@ -80,4 +80,13 @@ h2 {
     bottom: 0;
     left: 210px;
     margin: 50px;
+  }
+
+  .list {
+    list-style: none;
+  }
+
+  button:hover, button:focus {
+    color:white;
+    background-color: #000;
   }
