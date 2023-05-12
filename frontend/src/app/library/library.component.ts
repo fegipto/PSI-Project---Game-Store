@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { UserService } from '../service/user.service';
 import { Location } from '@angular/common';
 import { Item } from '../item';
-import { ListItems } from '../lists';
 import { LoginService } from '../service/login.service';
 
 @Component({
@@ -13,7 +12,8 @@ import { LoginService } from '../service/login.service';
 export class LibraryComponent {
 
   constructor(private userService: UserService,
-    private location:  Location, public loginService: LoginService) { }
+    private location:  Location,
+    public loginService: LoginService) { }
 
   items: Item[] = [];
 

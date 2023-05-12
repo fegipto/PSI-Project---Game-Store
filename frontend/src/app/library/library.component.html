@@ -2,8 +2,8 @@
 <div class="library-menu">
   <ul *ngIf="items.length>0" class="list">
     <li *ngFor="let item of items">
-      <a routerLink="itemsdetail/{{item.id}}"> 
-        Item: {{item.name}}<br><span class="date">Date of Acquisition: {{item.date}}</span>
+      <a routerLink="/itemsdetail/{{item.id}}"> 
+        {{item.name}} <span class="date">({{item.date}})</span>
       </a>
     </li>
   </ul>
