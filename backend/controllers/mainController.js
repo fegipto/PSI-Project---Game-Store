@@ -16,11 +16,15 @@ users = []
 items = []
 
 async function userCreate(id, name, lists, library, followers, following) {
-    userdetail = { id: id, name:name, lists:lists, library:library, followers:followers, following:following, password: '123'};
-    const user = new User(userdetail);
-    users.push(user);
-    await user.save();
-    console.log(`Added user: ${name}`);
+    try {
+        userdetail = { id: id, name:name, lists:lists, library:library, followers:followers, following:following, password: '123'};
+        const user = new User(userdetail);
+        users.push(user);
+        await user.save();
+        console.log(`Added user: ${name}`);
+    } catch (error) {
+        console.log("error adding " + name);
+    }
 }
 
 async function createUsers() {
@@ -73,9 +77,13 @@ async function createItems() {
 }
 
 async function itemCreate(item) {
-    items.push(item);
-    await item.save();
-    console.log(`Added item: ${item.name}`);
+    try {
+        items.push(item);
+        await item.save();
+        console.log(`Added item: ${item.name}`);
+    } catch (error) {
+        console.log("error adding " + item.name);
+    }
 }
 
 // Read the image file and convert it to base64-encoded data

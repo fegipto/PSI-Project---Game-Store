@@ -1,0 +1,139 @@
+#carrinho-container {
+    margin-left: 210px;
+    padding: 30px;
+}
+
+#items-container {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    width: 80%;
+    font-size: 1rem;
+
+    padding: 0;
+    margin: auto;
+}
+
+.item {
+    display: flex;
+    gap: 2rem;
+    border: 3px solid gray;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.item:hover, .item:focus-within {
+    border-color: rgb(16, 19, 33);
+}
+
+.item > * {
+    flex-grow: 2;
+    text-align: center;
+
+}
+
+/* .item > *:not(:last-child)::after {
+    content: "";
+    width: 2px;
+    height: max-content;
+    
+    border-right: 2px solid black;
+
+} */
+
+.item-name-type {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-name {
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+
+.item-type {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: gray;
+}
+
+.item-price {
+    align-self: center;
+    font-weight: bold;
+}
+
+.item-price::after {
+    content: "€";
+}
+
+.item-quantity-container {
+    flex-grow: 1 !important;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.quantity-button {
+    aspect-ratio: 1;
+    font-size: 1.5rem;
+    
+    height: 2rem;
+    width: 2rem;
+    
+    font-weight: bolder;
+    padding: 0;
+    margin: 0;
+
+    align-self: center;
+}
+
+.item-quantity {
+    align-self: center;
+    vertical-align: middle;
+}
+
+.item-remove {
+    flex-grow: 0 !important;
+    margin: 0;
+    border-radius: 0;
+}
+
+#checkout-area {
+    margin-left: auto;
+    margin-right: 0;
+
+    margin: 40px 120px auto auto;
+
+    width: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#total-price {
+    text-align: center;
+    font-size: 2rem;
+}
+
+#total-price::after {
+    content: "€";
+}
+
+#checkout-button {
+    margin: auto;
+}
+
+@media (max-width: 1200px) {
+    .item {
+        flex-direction: column;
+    }
+
+    #checkout-area {
+        margin: auto;
+        margin-top: 40px;
+    }
+}

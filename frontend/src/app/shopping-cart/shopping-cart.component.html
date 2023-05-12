@@ -1,0 +1,39 @@
+<div id="carrinho-container">
+    <!-- 
+  
+      Cada utilizador deve poder visualizar o nome, tipo, preço e quantidade de cada um dos itens presentes no carrinho
+      Cada utilizador deve poder visualizar o valor total dos itens presentes no carrinho
+      Cada utilizador deve poder eliminar os itens presentes no carrinho
+      Cada utilizador deve poder aumentar ou diminuir as quantidades de um certo item no carrinho
+  
+       -->
+  
+    <ul id="items-container">
+      <li class="item" *ngFor="let item of this.items">
+        <p class="item-name-type">
+          <span class="item-name">{{ item.name }}</span>
+          <span class="item-type">{{ item.tipo }}</span>
+        </p>
+        <span class="item-price">{{ getItemPrice(item.id) }} </span>
+        <div class="item-quantity-container">
+          <button class="quantity-button" (click)="decreaseAmount(item.id)">
+            -
+          </button>
+          <span class="item-quantity">{{ this.quantities.get(item.id) }}</span>
+          <button class="quantity-button" (click)="increaseAmount(item.id)">
+            +
+          </button>
+        </div>
+        <button class="item-remove" (click)="removeItem(item.id)">X</button>
+      </li>
+      <li *ngIf="this.items.length === 0">
+        <h2>Empty Cart</h2>
+      </li>
+    </ul>
+    <div id="checkout-area">
+      <span id="total-price">{{ getTotalPrice() }}</span>
+      <button id="checkout-button">Checkout</button>
+      <button (click)="addItem(234)">Dummy</button>
+    </div>
+  </div>
+  
