@@ -90,3 +90,7 @@ h2 {
     color:white;
     background-color: #000;
   }
+
+  .date {
+    font-size: small;
+  }
