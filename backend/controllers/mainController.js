@@ -10,14 +10,15 @@ exports.init = (req, res) => {
 };
 const mongoose = require("mongoose");
 mongoose.set('strictQuery', false);
-const mongoDB = "mongodb+srv://tiagomg7fernandes:mBTQcpcGgtJeLuDj@locallibrary.kxp3fjt.mongodb.net/my_database?retryWrites=true&w=majority";
+const mongoDB = "mongodb+srv://fc56272:JnB6e2bJmXLdccao@psi31.wojdtvu.mongodb.net/?retryWrites=true&w=majority";
+// const mongoDB = "mongodb://psi031:psi031@localhost:27017/psi031?retryWrites=true&authSource=psi031";
 
-users = []
-items = []
+const users = []
+const items = []
 
 async function userCreate(id, name, lists, library, followers, following) {
     try {
-        userdetail = { id: id, name:name, lists:lists, library:library, followers:followers, following:following, password: '123'};
+        const userdetail = { id: id, name:name, lists:lists, library:library, followers:followers, following:following, password: '123'};
         const user = new User(userdetail);
         users.push(user);
         await user.save();
@@ -29,9 +30,6 @@ async function userCreate(id, name, lists, library, followers, following) {
 
 async function createUsers() {
     await Promise.all([
-        //userCreate(1,"Becky"),
-        //userCreate(2,"Tom"),
-        //userCreate(3,"Huckleberry"),
         userCreate(1,
             "Becky", 
             [{name : "lista1", values: [await Item.where('id', 1).findOne(), await Item.where('id', 2).findOne()]},
@@ -44,7 +42,7 @@ async function createUsers() {
             "Tom", 
             [{name : "lista1", values: [await Item.where('id', 1).findOne(), await Item.where('id', 2).findOne()]},
                       {name:"lista2", values: [await Item.where('id', 3).findOne(), await Item.where('id', 2).findOne()]}],
-            [await Item.where('id', 1).findOne(), await Item.where('id', 2).findOne()],
+            [await Item.where('id', 1).findOne(), await Item.where('id', 2).findOne(), await Item.where('id', 3).findOne()],
             [await User.where('id', 1).findOne()],
             [await User.where('id', 1).findOne()],
             [{ data: imageData, contentType: 'image/jpg' }],
@@ -89,9 +87,11 @@ async function itemCreate(item) {
 // Read the image file and convert it to base64-encoded data
 const imageData = fs.readFileSync('../images/callofduty.jpg', { encoding: 'base64' });
 
+const d = new Date("2015-03-25");
+
 // Create four example items
 const item1 = new Item({
-  id: '11111',
+  id: 1,
   name: 'Call of Duty',
   descricao: 'This is a war game',
   tipo: 'Jogo',
@@ -100,13 +100,15 @@ const item1 = new Item({
   preco: 49.99,
   classificacao: 'E',
   avaliacoes: 4.5,
-  date: 5-1-2021,
+  date: d,
   imagens: [{ data: imageData, contentType: 'image/jpg' }],
   video: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
 });
 
+const d2 = new Date("2016-03-21");
+
 const item2 = new Item({
-  id: '234',
+  id: 2,
   name: 'Item 2',
   descricao: 'This is the second item',
   tipo: 'DLC',
@@ -115,12 +117,14 @@ const item2 = new Item({
   preco: 9.99,
   classificacao: 'M',
   avaliacoes: 3.2,
-  date: 5-1-2022,
+  date: d2,
   imagens: [{ data: Buffer.from('image2'), contentType: 'image/png' }, { data: Buffer.from('image3'), contentType: 'image/png' }],
 });
 
+const d3 = new Date("2010-03-05");
+
 const item3 = new Item({
-  id: '345',
+  id: 3,
   name: 'Item 3',
   descricao: 'This is the third item',
   tipo: 'Subscrição',
@@ -129,7 +133,7 @@ const item3 = new Item({
   preco: 14.99,
   classificacao: 'T',
   avaliacoes: 4.7,
-  date: 5-3-2021,
+  date: d3,
   imagens: [{ data: Buffer.from('image4'), contentType: 'image/png'
     }],
     video: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',

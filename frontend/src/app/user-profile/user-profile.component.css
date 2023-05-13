@@ -46,6 +46,10 @@ select {
   border-radius: 10px;
   margin: 0;
 }
+.user-menu-submenu-library{
+  margin-right: 430px;
+  list-style: none;
+}
 .user-menu-submenu-lists{
   margin-right: 430px;
 }
@@ -70,7 +74,7 @@ select {
 }
 
 #user-library {
-  margin-right: 400px;
+  margin-right: 430px;
   justify-content: left;
 }
 

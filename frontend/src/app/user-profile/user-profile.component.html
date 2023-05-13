@@ -12,6 +12,13 @@
   <div id="user-menu">
     <ul>
         <h2 routerLink="/user-profile/{{ this.user.id }}/library" id="user-library">Library</h2>
+        <div class="user-menu-submenu-library">
+          <ul>
+            <li *ngFor="let item of library">
+              {{item.name}}
+            </li>
+          </ul>
+        </div>
         <a href="#" class="user-menu-item"></a>
         <div class="user-menu-submenu-lists">
           <app-lists></app-lists>
