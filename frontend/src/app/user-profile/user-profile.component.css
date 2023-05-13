@@ -48,7 +48,6 @@ select {
 }
 .user-menu-submenu-library{
   margin-right: 430px;
-  list-style: none;
 }
 .user-menu-submenu-lists{
   margin-right: 430px;
@@ -98,4 +97,8 @@ select {
   border: 1px solid gray;
   border-radius: 1em;
   width: 10px;
+}
+
+li {
+  list-style: none;
 }
