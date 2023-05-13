@@ -10,8 +10,7 @@ exports.init = (req, res) => {
 };
 const mongoose = require("mongoose");
 mongoose.set('strictQuery', false);
-const mongoDB = "mongodb+srv://fc56272:JnB6e2bJmXLdccao@psi31.wojdtvu.mongodb.net/?retryWrites=true&w=majority";
-// const mongoDB = "mongodb://psi031:psi031@localhost:27017/psi031?retryWrites=true&authSource=psi031";
+const mongoDB = "mongodb://psi031:psi031@localhost:27017/psi031?retryWrites=true&authSource=psi031";
 
 const users = []
 const items = []
