@@ -15,7 +15,9 @@
         <div class="user-menu-submenu-library">
           <ul>
             <li *ngFor="let item of library">
-              {{item.name}}
+              <a routerLink="/itemsdetail/{{item.id}}">
+                {{item.name}}
+              </a>
             </li>
           </ul>
         </div>
