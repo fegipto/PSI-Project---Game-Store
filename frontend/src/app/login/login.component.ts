@@ -3,6 +3,8 @@ import { Location } from '@angular/common';
 import { NgForm } from '@angular/forms';
 import { LoginService } from '../service/login.service';
 import { MessageService } from '../service/message.service';
+import { CartService } from '../service/cart.service';
+import { Item } from '../item';
 import { timeInterval, timeout } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
@@ -22,10 +24,11 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, 
     public loginService: LoginService, 
     private location: Location, 
-    private cookieService: CookieService) {}
+    private cartService: CartService) {}
 
   ngOnInit(): void {
-    this.cookieService.set("loggedIn", "false");
+    this.loginService.getCookieService().set("loggedIn", "false");
+    this.loginService.getCookieService().set("userID", "-1");
   }
 
   onSubmit(form: NgForm) {
@@ -54,8 +57,8 @@ export class LoginComponent implements OnInit {
       this.loggedIn = true;
       this.userId = user.id;
 
-      this.cookieService.set("loggedIn", "true");
-      this.cookieService.set("userID",  String(user.id));
+      this.loginService.getCookieService().set("loggedIn", "true");
+      this.loginService.getCookieService().set("userID",  String(user.id));
 
       window.location.assign('/dashboard');
     });

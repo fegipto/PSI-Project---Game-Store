@@ -34,10 +34,16 @@ router.get("/items/:name", itemController.find_match_items);
 
 router.get("/itemsdetail/:id", itemController.find_Item);
 
+router.get("/_itemsdetail/:id", itemController._find_Item);
+
 router.get("/login/:name/:password", loginController.try_login);
 
 router.get("/usernames", userLoginController.usersnames);
 
 router.post("/signup", userLoginController.userlogin);
+
+router.post("/cart", userController.updateCart);
+
+router.get("/users/:id/cart", userController.cart);
 
 module.exports = router;

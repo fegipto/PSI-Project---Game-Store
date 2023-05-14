@@ -1,4 +1,4 @@
-<div *ngIf="item" class="item-detail">
+<div *ngIf="item && itemToCart" class="item-detail">
   <div class="item">
     <div class="item-details">
       <h2 class="item-name">{{item.name}}</h2>
@@ -10,21 +10,21 @@
       </div>
       <p class="item-description">{{item.descricao}}</p>
       <ul class="item-info">
-        <li *ngIf="this.item.tipo != undefined"><strong>Type:</strong>{{item.tipo}}</li>
-        <li *ngIf="this.item.plataforma != undefined"><strong>Plataform:</strong> {{item.plataforma}}</li>
-        <li *ngIf="this.item.idiomas != undefined"><strong>Languages:</strong> {{item.idiomas}}</li>
-        <li *ngIf="this.item.preco != undefined"><strong>Price:</strong> {{item.preco}}€</li>
-        <li *ngIf="this.item.classificacao != undefined"><strong>Classification:</strong> {{item.classificacao}}</li>
-        <li *ngIf="this.item.avaliacoes != undefined"><strong>Evaluation:</strong> {{item.avaliacoes}}</li>
-        <li *ngIf="this.item.imagens != undefined"><strong>Other images:</strong>
+        <li *ngIf="item.tipo != undefined"><strong>Type:</strong> {{item.tipo}}</li>
+        <li *ngIf="item.plataforma != undefined"><strong>Plataform:</strong> {{item.plataforma}}</li>
+        <li *ngIf="item.idiomas != undefined"><strong>Languages:</strong> {{item.idiomas}}</li>
+        <li *ngIf="item.preco != undefined"><strong>Price:</strong> {{item.preco}}€</li>
+        <li *ngIf="item.classificacao != undefined"><strong>Classification:</strong> {{item.classificacao}}</li>
+        <li *ngIf="item.avaliacoes != undefined"><strong>Evaluation:</strong> {{item.avaliacoes}}</li>
+        <li *ngIf="item.imagens != undefined"><strong>Other images:</strong>
           <div  class="image-container-bottom" *ngFor="let image of item.imagens.slice(1)">
             <img *ngIf="image && image.contentType && image.data"
                  [src]="'data:' + image.contentType + ';base64,' + image.data" />
           </div>
         </li>
-        <p><strong>Vídeo:</strong> <a href="{{item.video}}">{{item.video}}</a></p>
+        <li><strong>Vídeo:</strong> <a href="{{item.video}}">{{item.video}}</a></li>
       </ul>
-      <button class="item-button" (click)="this.addItemToCart(item.id)">Buy Now</button>
+      <button (click)="addItemCart(itemToCart)" class="item-button">Add to cart</button>
     </div>
   </div>
 </div>

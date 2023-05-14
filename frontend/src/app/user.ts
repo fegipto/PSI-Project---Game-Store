@@ -12,4 +12,5 @@ export interface User {
       data: string;
       contentType: string;
     };
+    cart: Map<Item, number> | undefined;
   }

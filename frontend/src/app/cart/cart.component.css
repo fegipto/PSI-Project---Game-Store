@@ -1,0 +1,78 @@
+h1 {
+  margin-left: 210px;
+  text-align: center;
+}
+
+.total{
+  padding-right: 260px;
+  padding-top: 20px;
+  position: fixed;
+  right: 0;
+}
+
+.ibutton{
+  padding-left: 15px;
+
+}
+
+.saveButton{
+  padding-right: 240px;
+  padding-top: 50px;
+  position: fixed;
+  right: 0;
+}
+
+.clearButton{
+  padding-right: 380px;
+  padding-top: 50px;
+  position: fixed;
+  right: 0;
+}
+
+.logout{
+  padding-right: 500px;
+  padding-top: 50px;
+  position: fixed;
+  right: 0;
+}
+
+.empty{
+  margin-left: 220px;
+}
+.clearButton{
+  margin-left: 230px;
+}
+
+table{
+  margin-left: 230px;
+  width: 75%;
+}
+
+th, td, thead, tr {
+  padding: 0 50px;
+ 
+}
+th{
+  text-align: left;
+}
+
+.item {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  background-color: #3f525c;
+  flex-grow: 1;
+}
+
+
+
+.item a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-decoration: none;
+  color: white;
+}
+
+

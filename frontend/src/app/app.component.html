@@ -8,6 +8,15 @@
   <div class="search-wrapper">
     <app-items-search></app-items-search>
   </div>
+  <div class = "cart-wrapper">
+    <img src='https://www.pngaaa.com/api-download/1172027' class='cart_icon' routerLink="/cart/{{loginService.getLoginID()}}">
+    <label for="cart-label" routerLink="/cart/{{loginService.getLoginID()}}">Cart ({{getNItems()}})</label>
+  </div>
+  <div class = "logout">
+    <a (click)="logout()">Logout</a>
+  </div>
+
 </nav>
 </div>
+
 <router-outlet></router-outlet>
