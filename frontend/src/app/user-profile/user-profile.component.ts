@@ -5,6 +5,7 @@ import { UserService } from '../service/user.service';
 import { User } from '../user';
 import { ListItems } from '../lists';
 import { LoginService } from '../service/login.service';
+import { Item } from '../item';
 
 @Component({
   selector: 'app-user-profile',
@@ -17,6 +18,7 @@ export class UserProfileComponent implements OnInit {
   listItems: ListItems[] = [];
   followers: User[] = [];
   following: User[] = [];
+  library: Item[] = [];
   images: any[] = [];
 
   constructor(
@@ -31,7 +33,7 @@ export class UserProfileComponent implements OnInit {
     this.getLists();
     this.getFollowing();
     this.getFollowers();
-
+    this.getLibrary();
   }
 
   getFollowing(): void {
@@ -47,6 +49,11 @@ export class UserProfileComponent implements OnInit {
   getLists(): void {
     this.userService.getLists()
       .subscribe(users => this.listItems = users);
+  }
+
+  getLibrary(): void {
+    this.userService.getLibrary()
+      .subscribe(items => this.library = items);
   }
   
   getuser(): void {

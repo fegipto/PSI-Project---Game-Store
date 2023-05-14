@@ -21,6 +21,8 @@ import { LoginService } from './service/login.service';
 import { CartService } from './service/cart.service';
 import { CartComponent } from './cart/cart.component';
 import { CookieService } from 'ngx-cookie-service';
+import { CarrinhoComprasComponent } from './carrinho-compras/carrinho-compras.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { CookieService } from 'ngx-cookie-service';
     UserLoginComponent,
     LoginComponent,
     CartComponent,
+    CarrinhoComprasComponent,
+    ShoppingCartComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,9 @@ import { ItemService } from '../service/item.service';
 import { CartService } from '../service/cart.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Item } from '../item';
+import { ShoppingCartComponent } from '../shopping-cart/shopping-cart.component';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-item-detail',
@@ -34,6 +37,8 @@ export class ItemDetailComponent implements OnInit {
     private itemService: ItemService,
     private location: Location,
     private cartService: CartService,
+    public shoppingCart: ShoppingCartComponent,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -80,5 +85,11 @@ export class ItemDetailComponent implements OnInit {
     if (item) {
       this.cartService.addItemCartCookie(item);
     }
+  }
+
+  async addItemToCart(itemID: number): Promise<void> {
+    await this.shoppingCart.addItem(itemID);
+    
+    this.router.navigate(["/carrinho"]);
   }
 }

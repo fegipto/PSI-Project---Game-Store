@@ -1,5 +1,15 @@
 const User = require("../models/User");
 
+exports.usersnames = async function (req, res, next) {
+  const query = User.find({}, "id name")
+    .sort({ id: 1 })
+    .populate("name");
+  const result = query.find();
+  res.send((await result).map(function (x) {
+    return x.name;
+  }));
+}
+
 exports.userlogin = (req, res) => {
   createUsers(req);
   res.send();
