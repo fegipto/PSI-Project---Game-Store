@@ -72,8 +72,6 @@ input {
 
 }
 
-
-
 button {
   display: block;
   width: 100%;
@@ -102,4 +100,10 @@ button:focus {
   display: flex;
   flex-direction: column;
   gap: 0.5em;
+}
+
+.store {
+  color: rgb(0, 255, 0);
+  text-align: center;
+  font-style: italic;
 }

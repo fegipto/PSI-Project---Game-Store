@@ -1,8 +1,16 @@
 /* AppComponent's private CSS styles */
 
-h1 {
+h2 {
   color: rgb(255, 253, 253);
   margin-bottom: 0.25em;
+}
+
+.store {
+  color: rgb(0, 255, 0);
+  text-align: center;
+  font-style: italic;
+  padding-left: 0px;
+  padding-right: 30px;
 }
 
 .leftnav {
@@ -49,3 +57,40 @@ nav {
 .search-wrapper {
   width: 70%;
 }
+
+.cart-wrapper {
+  width: 70%;
+  color: white;
+  position:fixed;
+  bottom: 0;
+  margin-bottom: 90px;
+  
+}
+.logout a {
+  background-color: #eee;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  color: black;
+  font-size: 1rem;
+  padding: 1rem;
+}
+
+.logout{
+  color: white;
+  position:fixed;
+  bottom: 0;
+  font-size: 1;
+  margin-bottom: 10px;
+}
+
+.cart_icon{ 
+  width:40px; 
+  height:30px; 
+  } 
+
+  app-cart{
+    margin-left: 10px;
+    padding-bottom: 20px;
+  }
+

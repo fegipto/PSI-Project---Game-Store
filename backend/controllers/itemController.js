@@ -19,3 +19,33 @@ exports.find_Item =  async (req, res) => {
   const result = await query.findOne();
   res.send(result);
 };
+
+
+exports._find_Item=  async (req, res) => {
+  const query = Item.where('_id', req.params.id);
+  const result = await query.findOne();
+  res.send(result);
+}
+exports.getItemsById = async (req, res) => {  
+  const itemIDs = req.body.itemIDs;
+
+  if (!itemIDs) {
+    // console.log('No itemIDs found');
+    res.status(400);
+    res.send("itemIDs is empty");
+    return;
+  }
+  // console.log('itemIDs: ' + typeof itemIDs)
+  
+  console.log(itemIDs);
+  const items = await Item.find({ id: {$in: itemIDs} }); // find all items that match the id list
+  
+  if (items.length === 0) {
+    // console.log('No items found');
+    res.status(404);
+    res.send("No items found");
+    return;
+  }
+  
+  res.json(items); // return the items in JSON format
+};
