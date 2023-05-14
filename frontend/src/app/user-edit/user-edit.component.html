@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Edit</title>
+  <style>
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body id = "edit">
+  <h1>User Edit</h1>
+  <form>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required pattern="[A-Za-z0-9]{3,}" title="Must be alphanumeric and at least 3 characters">
+    <span class="error" id="nameError" style="display: none;">Invalid name. Please enter at least 3 alphanumeric characters.</span>
+
+    <br><br>
+
+    <label for="profileImage">Profile Image:</label>
+    <input type="file" id="profileImage" name="profileImage">
+
+    <br><br>
+
+    <input type="submit" value="Save">
+  </form>
+  <div class="back_button"> <button type="button" (click)="goBack()">Go back</button></div>
+
+  <script>
+    var nameInput = document.getElementById('name');
+    var nameError = document.getElementById('nameError');
+
+    nameInput.addEventListener('input', function() {
+      if (nameInput.validity.valid) {
+        nameError.style.display = 'none';
+      } else {
+        nameError.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>

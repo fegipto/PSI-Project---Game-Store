@@ -21,6 +21,7 @@ import { LoginService } from './service/login.service';
 import { CartService } from './service/cart.service';
 import { CartComponent } from './cart/cart.component';
 import { CookieService } from 'ngx-cookie-service';
+import { UserEditComponent } from './user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { CookieService } from 'ngx-cookie-service';
     UserLoginComponent,
     LoginComponent,
     CartComponent,
+    UserEditComponent,
   ],
   imports: [
     BrowserModule,
