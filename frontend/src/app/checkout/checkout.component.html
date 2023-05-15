@@ -1,0 +1,40 @@
+<div id="checkout-container">
+  <h1>CheckOut</h1>
+  <div class="total">
+    <p>Total: {{ getTotalPrice() }}€</p>
+  </div>
+  
+  <form>
+    <div class="nif">
+      <p>Introduza o seu NIF:</p>
+      <label for="nif">NIF:</label><br>
+      <input type="text" id="nif" name="nif" value=""><br>
+    </div>
+    <div class="dados">
+      <label for="name">Nome:</label><br>
+      <input type="text" id="name" name="name" value=""><br>
+      <label for="address">Morada:</label><br>
+      <input type="text" id="address" name="address" value=""><br><br>
+    </div>
+    <div class="pagamento">
+      <p>Selecione método de pagamento:</p>
+      <label class="switch" for="cc"> Cartão de crédito
+        <input type="checkbox" id="cc" name="metodoPagamento" value="cc" (change)="onCheckboxChange($event, 'cc')" [checked]="selectedPaymentMethod === 'cc'">
+        <span class="slider round"></span>
+      </label><br>
+      <label class="switch" for="mbway"> MBWay
+        <input type="checkbox" id="mbway" name="metodoPagamento" value="mbway" (change)="onCheckboxChange($event, 'mbway')" [checked]="selectedPaymentMethod === 'mbway'">
+        <span class="slider round"></span>
+      </label><br><br>
+    </div>
+    <div class="submit">
+      <input type="submit" value="Submit"><br>
+    </div>
+  </form>
+</div>
+
+
+
+
+
+

@@ -13,7 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
 import { CarrinhoComprasComponent } from './carrinho-compras/carrinho-compras.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
-
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 
@@ -31,6 +31,7 @@ const routes: Routes = [
   { path: 'itemsdetail/:id', component: ItemDetailComponent},
   { path: 'cart/:id', component: CartComponent},
   { path: 'carrinho', component: ShoppingCartComponent},
+  { path: 'checkout', component: CheckoutComponent}
 ];
 
 @NgModule({

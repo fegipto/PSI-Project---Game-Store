@@ -7,17 +7,18 @@ import { LoginService } from '../service/login.service';
 
 @Injectable({ providedIn: 'root' })
 @Component({
-  selector: 'app-shopping-cart',
-  templateUrl: './shopping-cart.component.html',
-  styleUrls: ['./shopping-cart.component.css']
+  selector: 'app-checkout',
+  templateUrl: './checkout.component.html',
+  styleUrls: ['./checkout.component.css']
 })
-export class ShoppingCartComponent {
+export class CheckoutComponent {
   constructor(
     private itemService: ItemService,
     private cookieService: CookieService, 
     public loginService: LoginService
   ) {}
 
+  selectedPaymentMethod = "";
   items: Item[] = [];
 
   quantities: Map<number, number> = new Map<number, number>();
@@ -36,6 +37,14 @@ export class ShoppingCartComponent {
   /* ngOnDestroy() {
     this.saveCart();
   } */
+
+  async onCheckboxChange(event: any, paymentMethod: string): Promise<void> {
+    if (event.target.checked) {
+      this.selectedPaymentMethod = paymentMethod;
+    } else {
+      this.selectedPaymentMethod = '';
+    }
+  }
 
   async getItems() {
     // TODO: temporary item loading
