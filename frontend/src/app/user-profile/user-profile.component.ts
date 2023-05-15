@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { UserService } from '../service/user.service';
 import { User } from '../user';
@@ -25,7 +25,8 @@ export class UserProfileComponent implements OnInit {
     private route: ActivatedRoute,
     private userService: UserService,
     private location: Location,
-    public loginService: LoginService
+    public loginService: LoginService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -75,6 +76,10 @@ export class UserProfileComponent implements OnInit {
         };
         reader.readAsDataURL(blob);
     }
+  }
+
+  edit() {
+    this.router.navigateByUrl("edit");
   }
 
 }

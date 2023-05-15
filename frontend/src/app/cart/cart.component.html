@@ -1,0 +1,40 @@
+<!-- <h1>Shopping Cart</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Price</th>
+      <th>Quantity</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="nItems > 0; else emptyCart">
+    <tr *ngFor="let entry of cart | keyvalue">
+      <td>{{ entry.key.name }}</td>
+      <td>{{ entry.key.preco }}€</td>
+      <td>
+        <a class = dbutton>
+        <button (click)="decreaseQuantity(entry.key)">-</button></a>
+        {{ entry.value }} 
+        <a class = ibutton>
+        <button (click)="increaseQuantity(entry.key)">+</button></a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class = total>
+    <p>Total: {{ calculateTotalPrice() }}€</p>
+</div>
+
+
+<ng-template #emptyCart >
+  <p class = "empty">Your shopping cart is empty.</p>
+</ng-template>
+
+<div class= "clearButton">
+  <button (click)="clearCart()">Clear Cart</button>
+</div>
+
+<div class= "saveButton">
+  <button (click)="saveCart()">Save Cart</button>
+</div>
+ -->

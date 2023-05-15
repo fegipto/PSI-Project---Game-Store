@@ -18,8 +18,12 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { LoginComponent } from './login/login.component';
 import { UserloginService } from './service/userlogin.service';
 import { LoginService } from './service/login.service';
+import { CartService } from './service/cart.service';
+import { CartComponent } from './cart/cart.component';
+import { CookieService } from 'ngx-cookie-service';
 import { CarrinhoComprasComponent } from './carrinho-compras/carrinho-compras.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -34,8 +38,10 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
     ItemDetailComponent,
     UserLoginComponent,
     LoginComponent,
+    CartComponent,
     CarrinhoComprasComponent,
     ShoppingCartComponent,
+    UserEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +55,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
       InMemoryDataService, { dataEncapsulation: false }
     )*/
   ],
-  providers: [UserService, ItemService, UserloginService, LoginService],
+  providers: [UserService, ItemService, UserloginService, LoginService, CartService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

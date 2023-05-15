@@ -1,21 +1,25 @@
-import { Component, Injectable } from '@angular/core';
+import { EventEmitter, Injectable, HostListener, OnInit } from '@angular/core';
+import { Observable, of, switchMap, forkJoin, firstValueFrom } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
+import { MessageService } from '../service/message.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { User } from '../user';
+import { ListItems } from '../lists';
 import { Item } from '../item';
-import { ItemService } from '../service/item.service';
-import { firstValueFrom } from 'rxjs';
+import { Cart } from '../cart';
 import { CookieService } from 'ngx-cookie-service';
-import { CartService } from '../service/cart.service';
+import { LoginService } from './login.service';
+import { ItemService } from './item.service';
+import mongoose, { Types } from 'mongoose';
 
-@Injectable({ providedIn: 'root' })
-@Component({
-  selector: 'app-shopping-cart',
-  templateUrl: './shopping-cart.component.html',
-  styleUrls: ['./shopping-cart.component.css']
+@Injectable({
+  providedIn: 'root',
 })
-export class ShoppingCartComponent {
+export class CartService {
+
   constructor(
     private itemService: ItemService,
     private cookieService: CookieService,
-    private cartService: CartService,
   ) {}
 
   items: Item[] = [];
@@ -37,9 +41,21 @@ export class ShoppingCartComponent {
     this.saveCart();
   } */
 
-  async getItems() {
+  getItems() {
     // TODO: temporary item loading
-    this.items = await firstValueFrom(this.itemService.searchItems('ite'));
+    return this.items;
+  }
+
+  getNumberOfItems() {
+    var sum = 0;
+
+    Array.from(this.quantities.values()).forEach((quantity: number) => sum += quantity);
+
+    return sum;
+  }
+  
+  getQuantities(): Map<number, number> {
+    return this.quantities;
   }
 
   async addItem(itemID: number) {
@@ -135,7 +151,7 @@ export class ShoppingCartComponent {
   }
 
   loadCart() {
-    /* try {
+    try {
       const quantitiesArray = JSON.parse(
         this.cookieService.get('shoppingCartQuantities')
       );
@@ -145,9 +161,7 @@ export class ShoppingCartComponent {
       this.quantities = new Map();
       this.items = [];
       return;
-    } */
-    this.cartService.loadCart();
-    this.items =  this.cartService.getItems();
-    this.quantities = this.cartService.getQuantities();
+    }
   }
+
 }

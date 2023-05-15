@@ -20,7 +20,8 @@ export class LoginService  {
     private http: HttpClient,
     private messageService: MessageService,
     private cookieService: CookieService
-  ) {}
+  ) {
+  }
 
 
 
@@ -37,7 +38,17 @@ export class LoginService  {
 
   }
 
+  getCookieService(){
+    return this.cookieService;
+  }
 
+  logout() {
+    this.getCookieService().set("loggedIn", "false");
+    this.getCookieService().set("oldID",this.getCookieService().get("userID"));
+    this.getCookieService().set("userID", "-1");
+    this.getCookieService().set('nItems', "0");
+    this.getCookieService().set("cart", "");
+  } 
 
   getLoginID() : number {
     if (this.isLoggedIn()) {

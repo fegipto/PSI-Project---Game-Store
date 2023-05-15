@@ -1,0 +1,93 @@
+#edit {
+    margin-left: 210px; /* Changed from 210px to 460px */
+    padding: 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr repeat(1fr);
+    gap: 10px;
+  }
+
+  
+  h2 {
+    text-align: center;
+    padding-top: 30px;
+  }
+    
+    .following-menu{
+      padding: 0;
+      margin: auto;
+      max-width: 1000px;
+    
+      /* flexbox */
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-content: flex-start;
+      align-items: flex-start;
+    }
+    
+    a {
+      background-color: #3f525c;
+      border-radius: 2px;
+      padding: 1rem;
+      font-size: 1.2rem;
+      text-decoration: none;
+      display: inline-block;
+      color: #fff;
+      text-align: center;
+      width: 100%;
+      min-width: 70px;
+      margin: .5rem auto;
+      box-sizing: border-box;
+    
+      /* flexbox */
+      order: 0;
+      flex: 0 1 auto;
+      align-self: auto;
+    }
+    
+    @media (min-width: 600px) {
+      a {
+        width: 18%;
+        box-sizing: content-box;
+      }
+    }
+    
+    a:hover {
+      background-color: #000;
+    }
+  
+    .container {
+      display: grid;
+      grid-template-rows: repeat(3, 33.33%);
+    }
+
+    
+
+button {
+    margin-left: 210px; 
+    display: block;
+    width: 100%;
+    padding: 5px;
+    background-color: #1a60ac;
+    color: #fff;
+    border: none;
+    border-radius: 1em;
+    cursor: pointer;
+    transition: background-color 300ms ease-in-out;
+    margin: 0;
+    margin-top: 5px;
+    outline: none;
+    border: 2px solid #ffffff00;
+  }
+  
+  button:hover, button:focus {
+    margin-left: 210px; 
+    background-color: rgb(37, 44, 75);
+  }
+  
+  button:focus {
+    margin-left: 210px; 
+    border: 2px solid #ccc;
+  }
