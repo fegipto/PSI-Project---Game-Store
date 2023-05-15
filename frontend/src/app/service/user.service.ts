@@ -56,6 +56,13 @@ export class UserService {
         );
   } 
 
+  editUser(): void {
+    return this.http.put()
+        .pipe(
+          catchError(this.handleError('editUser', null))
+        );
+  }
+
   //Temporário para testar
   getLoginID(): Number{
     return this.loginService.getLoginID()
