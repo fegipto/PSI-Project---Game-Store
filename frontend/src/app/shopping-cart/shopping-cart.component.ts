@@ -3,6 +3,7 @@ import { Item } from '../item';
 import { ItemService } from '../service/item.service';
 import { firstValueFrom } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
+import { CartService } from '../service/cart.service';
 
 @Injectable({ providedIn: 'root' })
 @Component({
@@ -13,7 +14,8 @@ import { CookieService } from 'ngx-cookie-service';
 export class ShoppingCartComponent {
   constructor(
     private itemService: ItemService,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private cartService: CartService,
   ) {}
 
   items: Item[] = [];
@@ -123,12 +125,17 @@ export class ShoppingCartComponent {
     );
     this.items.forEach((item) => {
       item.imagens = [];
+      item.classificacao = '';
+      item.descricao = '';
+      item.idiomas = '';
+      item.plataforma = '';
+      item.video = '';
     });
     this.cookieService.set('shoppingCartItems', JSON.stringify(this.items));
   }
 
   loadCart() {
-    try {
+    /* try {
       const quantitiesArray = JSON.parse(
         this.cookieService.get('shoppingCartQuantities')
       );
@@ -138,6 +145,9 @@ export class ShoppingCartComponent {
       this.quantities = new Map();
       this.items = [];
       return;
-    }
+    } */
+    this.cartService.loadCart();
+    this.items =  this.cartService.getItems();
+    this.quantities = this.cartService.getQuantities();
   }
 }
