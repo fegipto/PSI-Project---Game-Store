@@ -15,7 +15,10 @@ import { AnonymousSubject } from 'rxjs/internal/Subject';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
+  /* 
   nItems = 0;
   cart: Map<Item, number> = new Map<Item, number>();
   
@@ -80,5 +83,5 @@ increaseQuantity(item: Item) {
 saveCart(): void {
   this.cartService.saveCart().subscribe();
 }
-
+ */
 }

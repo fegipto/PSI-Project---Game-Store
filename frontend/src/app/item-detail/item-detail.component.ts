@@ -27,7 +27,8 @@ export class ItemDetailComponent implements OnInit {
     classificacao: '',
     avaliacoes: 0,
     imagens: [],
-    video: ''
+    video: '',
+    date: new Date,
   };
   selectedOption: String = "";
   images: any[] = [];
@@ -83,7 +84,7 @@ export class ItemDetailComponent implements OnInit {
 
   addItemCart(item: Item) {
     if (item) {
-      this.cartService.addItemCartCookie(item);
+      this.cartService.addItem(item.id);
     }
   }
 
