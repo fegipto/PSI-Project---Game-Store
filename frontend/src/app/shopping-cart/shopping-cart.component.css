@@ -47,6 +47,8 @@
 .item-name-type {
     display: flex;
     flex-direction: column;
+    width: 40%;
+    flex-shrink: 0;
 }
 
 .item-name {

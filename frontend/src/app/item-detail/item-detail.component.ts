@@ -84,7 +84,7 @@ export class ItemDetailComponent implements OnInit {
 
   addItemCart(item: Item) {
     if (item) {
-      this.cartService.addItemCartCookie(item);
+      this.cartService.addItem(item.id);
     }
   }
 

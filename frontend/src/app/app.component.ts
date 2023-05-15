@@ -14,11 +14,11 @@ export class AppComponent {
   constructor(public loginService: LoginService, public cartService: CartService, private router: Router,) {}
 
   getNItems() {
-    return this.loginService.getCookieService().get("nItems");
+    return this.cartService.getNumberOfItems();
   }
 
   logout() {
-    this.cartService.logout();
+    this.loginService.logout();
     this.router.navigateByUrl("login");
   }
 }
