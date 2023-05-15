@@ -14,12 +14,14 @@ import { LoginService } from '../service/login.service';
 export class CheckoutComponent {
   constructor(
     private itemService: ItemService,
-    private cookieService: CookieService, 
+    private cookieService: CookieService,
     public loginService: LoginService
-  ) {}
+  ) { }
 
   selectedPaymentMethod = "";
   items: Item[] = [];
+  isMbwayChecked = false;
+  isCcChecked = false;
 
   quantities: Map<number, number> = new Map<number, number>();
 
@@ -38,15 +40,21 @@ export class CheckoutComponent {
     this.saveCart();
   } */
 
-  async onCheckboxChange(event: any, paymentMethod: string): Promise<void> {
-    if (event.target.checked) {
-      this.selectedPaymentMethod = paymentMethod;
-    } else {
-      this.selectedPaymentMethod = '';
+  async onCheckboxChange(paymentMethod: string): Promise<void> {
+    if (paymentMethod === 'cc') {
+      this.selectedPaymentMethod = 'cc';
+      this.isMbwayChecked = false;
+    } else if (paymentMethod === 'mbway') {
+      this.selectedPaymentMethod = 'mbway';
+      this.isCcChecked = false;
     }
   }
 
-  async getItems() {
+  async submit(): Promise<void> {
+
+  }
+
+  /* async getItems() {
     // TODO: temporary item loading
     this.items = await firstValueFrom(this.itemService.searchItems('ite'));
   }
@@ -100,17 +108,6 @@ export class CheckoutComponent {
     this.saveCart();
   }
 
-  getTotalPrice() {
-    let sum = 0;
-    this.items.forEach((item) => {
-      const itemQuantity = this.quantities.get(item.id);
-      if (itemQuantity) {
-        sum += item.preco * itemQuantity;
-      }
-    });
-    return sum.toFixed(2);
-  }
-
   getItemPrice(itemID: number) {
     const item = this.items.find((item) => {
       if (item.id === itemID) {
@@ -137,7 +134,17 @@ export class CheckoutComponent {
     });
     this.cookieService.set('shoppingCartItems', JSON.stringify(this.items));
   }
-
+ */
+  getTotalPrice() {
+    let sum = 0;
+    this.items.forEach((item) => {
+      const itemQuantity = this.quantities.get(item.id);
+      if (itemQuantity) {
+        sum += item.preco * itemQuantity;
+      }
+    });
+    return sum.toFixed(2);
+  }
   loadCart() {
     try {
       const quantitiesArray = JSON.parse(
