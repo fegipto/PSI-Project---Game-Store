@@ -17,7 +17,7 @@ export class UserEditComponent implements OnInit {
 
   name = '';
   usernames: String[] = [];
-  profileImage = null;
+  profileImage: File | undefined;
 
   goBack(): void {
     this.location.back();
@@ -36,13 +36,24 @@ export class UserEditComponent implements OnInit {
     this.name = form.value.name.trim();
     this.profileImage = form.value.profileImage.trim();
 
+    if (!this.name.match(/^([a-zA-Z0-9]*)$/)) {
+      alert('The username must only have alphanumeric characters.');
+      return;
+    }
+    if (this.name.length < 3) {
+      alert('Name must have at least 3 characters.');
+      return;
+    }
     if(this.usernames.includes(this.name)) {
       alert('Username already being used. Please try a different one!');
       return;
     }
 
-    this.userService.editUser({ name: this.name, password: this.password } as User).subscribe();
-    alert('Profile successfully updated.')
-    window.location.assign('dashboard');
+    if(this.profileImage) {
+      this.userService.editUser( this.name, this.profileImage ).subscribe();
+      this.usernames.push(this.name);
+      alert('Profile successfully updated.')
+      window.location.assign('dashboard');
+    }
   }
 }

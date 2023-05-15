@@ -56,10 +56,10 @@ export class UserService {
         );
   } 
 
-  editUser(): void {
-    return this.http.put()
+  editUser(name: String, image: File): Observable<User> {
+    return this.http.put<User>(`${this.uri}/users/${this.loginService.getLoginID()}`, { name, image})
         .pipe(
-          catchError(this.handleError('editUser', null))
+          catchError(this.handleError<User>('editUser'))
         );
   }
 
