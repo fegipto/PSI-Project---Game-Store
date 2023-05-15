@@ -56,6 +56,13 @@ export class UserService {
         );
   } 
 
+  editUser(name: String, image: File): Observable<User> {
+    return this.http.put<User>(`${this.uri}/users/${this.loginService.getLoginID()}`, { name, image})
+        .pipe(
+          catchError(this.handleError<User>('editUser'))
+        );
+  }
+
   //Temporário para testar
   getLoginID(): Number{
     return this.loginService.getLoginID()
