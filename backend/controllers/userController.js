@@ -151,24 +151,20 @@ exports.cart = async (req, res) => {
 
 exports.editUser = async (req, res) => {
   const query = User.where('id', req.params.id);
-  const user = await query.findOne();
-  if(user) {
-    const updated_user = new User({
-      id: user.id,
-      name: req.body.name,
-      password: user.password,
-      lists: user.lists,
-      library: user.library,
-      follower: user.followers,
-      following: user.following,
-      imagens: req.body.image,
-      cart: user.cart,
-    });
-    await query.deleteOne();
-    await updated_user.save();
+
+  try {
+    const updatedUser = await query.findOneAndUpdate({}, { $set: { name: req.body.name, imagens_profile: req.body.image} });
+    if (updatedUser) {
+      res.json("Updated");
+    } else {
+      res.json("User not found");
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json("An error occurred");
   }
-  res.json("Updated");
 };
+
 
 
   

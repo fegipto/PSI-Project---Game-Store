@@ -12,5 +12,6 @@ export interface User {
       data: string;
       contentType: string;
     };
+    imagens_profile : string,
     cart: Map<Item, number> | undefined;
   }

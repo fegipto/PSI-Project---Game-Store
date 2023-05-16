@@ -2,27 +2,37 @@
 <html>
 <head>
   <title>User Edit</title>
-  <style>
-    .error {
-      color: red;
-    }
-  </style>
 </head>
-<body id = "edit">
+<body id="edit">
   <h1>User Edit</h1>
-  <form>
+  <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" [(ngModel)]="name" title="Must be alphanumeric and at least 3 characters">
-
     <br><br>
 
     <label for="profileImage">Profile Image:</label>
-    <input type="file" id="profileImage" name="profileImage" [(ngModel)]="profileImage">
+    <br><br>
 
+    <input type="radio" id="image1" name="profileImage" value="https://www.w3schools.com/howto/img_avatar.png" [(ngModel)]="profileImage"  [checked]="this.user?.imagens_profile === 'https://www.w3schools.com/howto/img_avatar.png'">
+    <label for="image1"><img src="https://www.w3schools.com/howto/img_avatar.png" alt="Image 1"></label>
+    <br><br>
+
+    <input type="radio" id="image2" name="profileImage" value="https://www.w3schools.com/w3images/avatar2.png" [(ngModel)]="profileImage"  [checked]="this.user?.imagens_profile === 'https://www.w3schools.com/w3images/avatar2.png'">
+    <label for="image2"><img src="https://www.w3schools.com/w3images/avatar2.png" alt="Image 2"></label>
+    <br><br>
+
+    <input type="radio" id="image3" name="profileImage" value="https://www.w3schools.com/howto/img_avatar2.png" [(ngModel)]="profileImage"  [checked]="this.user?.imagens_profile === 'https://www.w3schools.com/howto/img_avatar2.png'">
+    <label for="image3"><img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Image 3"></label>
+    <br><br>
+
+    <input type="radio" id="image4" name="profileImage" value="https://www.w3schools.com/w3images/avatar6.png" [(ngModel)]="profileImage"  [checked]="this.user?.imagens_profile === 'https://www.w3schools.com/w3images/avatar6.png'">
+    <label for="image4"><img src="https://www.w3schools.com/w3images/avatar6.png" alt="Image 4"></label>
     <br><br>
 
     <input type="submit" value="Save">
   </form>
-  <div class="back_button"> <button type="button" (click)="goBack()">Go back</button></div>
+  <div class="back_button">
+    <button type="button" (click)="goBack()">Go back</button>
+  </div>
 </body>
 </html>

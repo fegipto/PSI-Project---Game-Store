@@ -3,8 +3,7 @@
     <div id="user-img"></div>
 
     <div class="image-container">
-      <img *ngIf="images && images.length > 0" 
-           [src]="'data:' + user.imagens.contentType + ';base64,' + images" />
+      <img *ngIf="user" [src]="user.imagens_profile" /> 
     </div>
 
     <h1 id="user-name">{{ this.user.name }}</h1>
@@ -35,8 +34,7 @@
         </div>
     </ul>
   </div>
-  <div class = "edit">
-    <a (click)="edit()">Edit</a>
-  </div>
+  <button (click)="edit()">Edit</button>
+    
   
 </div>

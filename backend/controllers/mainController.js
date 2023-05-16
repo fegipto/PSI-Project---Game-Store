@@ -15,8 +15,8 @@ const mongoDB = "mongodb://psi031:psi031@localhost:27017/psi031?retryWrites=true
 const users = []
 const items = []
 
-async function userCreate(id, name, lists, library, followers, following, images, cart) {
-    userdetail = { id: id, name:name, lists:lists, library:library, followers:followers, following:following, password: '123', imagens:images, cart:cart};
+async function userCreate(id, name, lists, library, followers, following, images, imagem_profile, cart) {
+    userdetail = { id: id, name:name, lists:lists, library:library, followers:followers, following:following, password: '123', imagens:images, imagens_profile: imagem_profile, cart:cart};
     const user = new User(userdetail);
     users.push(user);
     await user.save();
@@ -33,6 +33,7 @@ async function createUsers() {
             [],
             [],
             [],
+            "https://www.w3schools.com/howto/img_avatar.png",
             new Map()
             ),
         userCreate(2,
@@ -43,6 +44,7 @@ async function createUsers() {
             [await User.where('id', 1).findOne()],
             [await User.where('id', 1).findOne()],
             [{ data: imageData, contentType: 'image/jpg' }],
+            "https://www.w3schools.com/howto/img_avatar.png",
             new Map()
             ),
         userCreate(3,
@@ -53,6 +55,7 @@ async function createUsers() {
             [await User.where('id', 1).findOne(), await User.where('id', 2).findOne()],
             [await User.where('id', 1).findOne(), await User.where('id', 2).findOne()],
             [{ data: imageData, contentType: 'image/jpg' }],
+            "https://www.w3schools.com/howto/img_avatar.png",
             new Map(),
             ),
         userCreate(4,
@@ -63,6 +66,7 @@ async function createUsers() {
             [await User.where('id', 3).findOne(), await User.where('id', 2).findOne()],
             [await User.where('id', 3).findOne(), await User.where('id', 2).findOne()],
             [{ data: imageData, contentType: 'image/jpg' }],
+            "https://www.w3schools.com/howto/img_avatar.png",
             new Map(),
             ),
     ]);
@@ -103,6 +107,7 @@ const item1 = new Item({
   classificacao: 'E',
   avaliacoes: 4.5,
   imagens: [{ data: imageData, contentType: 'image/jpg;base64' }],
+  
   video: 'https://www.youtube.com/watch?v=oJca6zoI50E&pp=ygUUY2FsbCBvZiBkdXR5IHRyYWlsZXI%3D',
 });
 
@@ -120,6 +125,7 @@ const item2 = new Item({
   avaliacoes: 3.2,
   date: d2,
   imagens: [{ data: Buffer.from('image2'), contentType: 'image/png' }, { data: Buffer.from('image3'), contentType: 'image/png' }],
+
 });
 
 const d3 = new Date("2010-03-05");

@@ -11,9 +11,9 @@ const UserSchema = new Schema({
   library:   {type: [Schema.Types.ObjectId],ref: 'Item'},
   followers: {type: [Schema.Types.ObjectId],ref: 'User'},
   following: {type: [Schema.Types.ObjectId],ref: 'User'},
-  imagens: {
-    type: [{ data: Buffer, contentType: String }],
-  },  cart: {type: [Schema.Types.ObjectId],ref: 'Cart'},
+  imagens: {type: [{ data: Buffer, contentType: String }],},  
+  imagens_profile: {type: String},  
+  cart: {type: [Schema.Types.ObjectId],ref: 'Cart'},
 });
 
 module.exports = mongoose.model("User", UserSchema);

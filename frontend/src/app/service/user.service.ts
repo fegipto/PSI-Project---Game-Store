@@ -56,8 +56,8 @@ export class UserService {
         );
   } 
 
-  editUser(name: String, image: File): Observable<User> {
-    return this.http.put<User>(`${this.uri}/users/${this.loginService.getLoginID()}`, { name, image})
+  editUser(name: String, image: String): Observable<User> {
+    return this.http.put<User>(`${this.uri}/users/${this.loginService.getLoginID()}/edit`, { name, image})
         .pipe(
           catchError(this.handleError<User>('editUser'))
         );
@@ -111,6 +111,7 @@ getUser(id: number): Observable<User> {
     catchError(this.handleError<User>(`getUser id=${id}`))
   );
 }
+
 /** PUT: update the User on the server */
 updateUser(User: User): Observable<any> {
   return this.http.put(`${this.uri}/User/${User.id}`, User, this.httpOptions).pipe(

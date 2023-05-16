@@ -33,6 +33,7 @@ const routes: Routes = [
   { path: 'itemsdetail/:id', component: ItemDetailComponent},
   { path: 'cart/:id', component: CartComponent},
   { path: 'carrinho', component: ShoppingCartComponent},
+  { path: 'user-edit/:id', component: UserEditComponent },
 ];
 
 @NgModule({

@@ -20,6 +20,7 @@ export class UserProfileComponent implements OnInit {
   following: User[] = [];
   library: Item[] = [];
   images: any[] = [];
+  imagem_profile_url: String = "";
 
   constructor(
     private route: ActivatedRoute,
@@ -35,6 +36,7 @@ export class UserProfileComponent implements OnInit {
     this.getFollowing();
     this.getFollowers();
     this.getLibrary();
+    this.getAvatar();
   }
 
   getFollowing(): void {
@@ -61,6 +63,12 @@ export class UserProfileComponent implements OnInit {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.userService.getUser(id)
       .subscribe(user => this.user = user);
+  }
+
+  getAvatar(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.userService.getUser(id)
+      .subscribe(user => this.imagem_profile_url = user.imagens_profile);
   }
 
   goBack(): void {
