@@ -89,6 +89,13 @@ export class CartService {
     this.saveCart();
   }
 
+  clearCart() {
+    this.items = [];
+    this.quantities = new Map<number, number>();
+
+    this.saveCart();
+  }
+
   increaseAmount(itemID: number) {
     const curr = this.quantities.get(itemID);
     if (curr) {

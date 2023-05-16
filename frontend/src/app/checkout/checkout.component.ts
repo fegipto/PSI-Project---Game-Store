@@ -3,6 +3,9 @@ import { Item } from '../item';
 import { CookieService } from 'ngx-cookie-service';
 import { Location } from '@angular/common';
 import { CheckoutService } from '../service/checkout.service'
+import { CartService } from '../service/cart.service';
+import { Router } from '@angular/router';
+
 
 @Injectable({ providedIn: 'root' })
 @Component({
@@ -14,8 +17,12 @@ export class CheckoutComponent {
   constructor(
     private cookieService: CookieService,
     private location: Location,
-    private checkoutService: CheckoutService
+    private checkoutService: CheckoutService,
+    private cartService: CartService,
+    private router: Router,
   ) { }
+
+  nif: String = '';
 
   selectedPaymentMethod = "";
   items: Item[] = [];
@@ -64,10 +71,19 @@ export class CheckoutComponent {
   }
 
   async submit(): Promise<void> {
-    await this.checkoutService.getCheckout().subscribe((res) => {
+    /* await this.checkoutService.getCheckout().subscribe((res) => {
       console.log(res);
       alert(JSON.stringify(res));
-    });
+    }); */
+
+    const sucess = Math.random() < 0.5;
+
+    if (sucess) {
+      alert("Checkout realizado com sucesso!");
+      this.cartService.clearCart();
+    } else {
+      alert("Checkout falhou!");
+    }
 
   }
 
