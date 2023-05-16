@@ -49,4 +49,6 @@ router.post("/cart", userController.updateCart);
 
 router.get("/users/:id/cart", userController.cart);
 
+router.put("/users/:id", userController.editUser);
+
 module.exports = router;

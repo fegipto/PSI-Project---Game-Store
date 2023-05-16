@@ -146,6 +146,7 @@ export class ShoppingCartComponent {
       this.items = [];
       return;
     } */
+    this.cartService.loadCart();
     this.items =  this.cartService.getItems();
     this.quantities = this.cartService.getQuantities();
   }

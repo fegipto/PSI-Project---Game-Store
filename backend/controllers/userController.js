@@ -158,6 +158,7 @@ async function insertCart(req, res) {
   }
 }
 
+  
 exports.cart = async (req, res) => {
   const query = User.where('id', req.params.id);
   const user = await query.findOne();  
@@ -173,6 +174,27 @@ exports.cart = async (req, res) => {
       return { item: item, quantity: quantity };
     });
     res.json(cartArray);
+  };
+
+  exports.editUser = async (req, res) => {
+    const query = User.where('id', req.params.id);
+    const user = await query.findOne();
+    if(user) {
+      const updated_user = new User({
+        id: user.id,
+        name: req.body.name,
+        password: user.password,
+        lists: user.lists,
+        library: user.library,
+        follower: user.followers,
+        following: user.following,
+        imagens: req.body.image,
+        cart: user.cart,
+      });
+      await query.deleteOne();
+      await updated_user.save();
+    }
+    return;
   };
 }
 

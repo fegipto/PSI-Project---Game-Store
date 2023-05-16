@@ -47,7 +47,11 @@ export class CartService {
   }
 
   getNumberOfItems() {
-    return this.items.length;
+    var sum = 0;
+
+    Array.from(this.quantities.values()).forEach((quantity: number) => sum += quantity);
+
+    return sum;
   }
   
   getQuantities(): Map<number, number> {
