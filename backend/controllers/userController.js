@@ -175,7 +175,7 @@ exports.cart = async (req, res) => {
     });
     res.json(cartArray);
   };
-
+}
   exports.editUser = async (req, res) => {
     const query = User.where('id', req.params.id);
     const user = await query.findOne();
@@ -196,6 +196,6 @@ exports.cart = async (req, res) => {
     }
     return;
   };
-}
+
 
   
