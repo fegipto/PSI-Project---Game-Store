@@ -44,6 +44,7 @@ router.get("/usernames", userLoginController.usersnames);
 router.post("/signup", userLoginController.userlogin);
 
 router.get("/checkout", checkoutController.confirmCheckout);
+
 router.post("/cart", userController.updateCart);
 
 router.get("/users/:id/cart", userController.cart);

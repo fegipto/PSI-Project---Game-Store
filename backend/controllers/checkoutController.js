@@ -8,16 +8,16 @@ const randomSuccess = () => Math.random() < 0.5;
 
 exports.confirmCheckout = async (req, res) => {
   const query = User.where('id', req.params.id);
-  const user = await query.findOne();  
+  const user = await query.findOne();
 
   if (user?.cart == null) {
-    return res.send({error: 'Erro ao processar checkout: carrinho vazio!'})
-  } 
+    return res.send({ error: 'Erro ao processar checkout: carrinho vazio!' })
+  }
 
   const cart = await Cart.findById(user.cart);
 
   try {
-    if (randomSuccess){
+    if (randomSuccess()) {
       // success - mandar msg e adicionar na biblioteca e remover do carrinho e da Wishlist
 
       // falta adicionar este metodo no userController
@@ -29,13 +29,13 @@ exports.confirmCheckout = async (req, res) => {
       // falta adicionar este metodo no userController
       await userController.clearCart(user.id)
 
-      res.send({success:'Compra efectuada com sucesso'})
+      res.send({ success: 'Compra efectuada com sucesso' })
 
     } else {
       // erro
-      res.send({error: 'Erro ao processar checkout'})
+      res.send({ error: 'Erro ao processar checkout' })
     }
   } catch (err) {
-    res.send({error: 'Erro ao processar checkout', errorMsg: err})
+    res.send({ error: 'Erro ao processar checkout', errorMsg: err })
   }
 };
