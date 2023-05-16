@@ -82,25 +82,53 @@ exports.updateCart = async (req, res) => {
   const query = User.where('id', req.body.id);
   const result = await query.findOne();
 
-  if (result) {
-    await insertCart(req, result);
-    res.status(200).json({ message: "Cart data was saved successfully!" });
-  } else {
-    res.status(404).json({ message: "User not found" });
+    if (result) {
+      await insertCart(req, result);
+      res.status(200).json({ message: "Cart data was saved successfully!" });
+    } else {
+      res.status(404).json({ message: "User not found" });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Internal server error" });
   }
-} catch (err) {
-  console.error(err);
-  res.status(500).json({ message: "Internal server error" });
-}
 }
 
-
+exports.addItemsLibrary = async (id, items) => {
+  const queryUser = User.where('id', id);
+  const user = await queryUser.findOne();
   
-  async function createCart(req, res) {
-    await Promise.all([
-      insertCart(req, res),
-    ]);
+  if (user) {
+    user.library = user.library.push(...items);
+    await user.save();
   }
+}
+
+exports.removeItemsWhislist = async (id, items) => {
+  const queryUser = User.where('id', id);
+  const user = await queryUser.findOne();
+
+  if (user) {
+    user.lists = user.lists.filter(item => !items.includes(item));
+    await user.save();
+  }
+}
+
+exports.clearCart = async (id) => {
+  const queryUser = User.where('id', id);
+  const user = await queryUser.findOne();
+
+  if (user) {
+    user.cart = null;
+    await user.save();
+  }
+}
+
+async function createCart(req, res) {
+  await Promise.all([
+    insertCart(req, res),
+  ]);
+}
 
 
 async function insertCart(req, res) {

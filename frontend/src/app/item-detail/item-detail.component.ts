@@ -27,8 +27,8 @@ export class ItemDetailComponent implements OnInit {
     classificacao: '',
     avaliacoes: 0,
     imagens: [],
-    video: '',
-    date: new Date,
+    video: '', 
+    date: new Date()
   };
   selectedOption: String = "";
   images: any[] = [];

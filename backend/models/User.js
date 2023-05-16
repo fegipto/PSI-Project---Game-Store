@@ -11,8 +11,12 @@ const UserSchema = new Schema({
   library:   {type: [Schema.Types.ObjectId],ref: 'Item'},
   followers: {type: [Schema.Types.ObjectId],ref: 'User'},
   following: {type: [Schema.Types.ObjectId],ref: 'User'},
+<<<<<<< HEAD
   imagens: {type: [{ data: Buffer, contentType: String }],},  
   imagens_profile: {type: String},  
+=======
+  imagens: {type: [{ data: Buffer, contentType: String }],},
+>>>>>>> 3c9720c04ab4b86cdc76fd992d6b15bb8c8b48c7
   cart: {type: [Schema.Types.ObjectId],ref: 'Cart'},
 });
 

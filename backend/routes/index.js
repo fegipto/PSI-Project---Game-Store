@@ -6,6 +6,7 @@ const userController = require("../controllers/userController");
 const itemController = require("../controllers/itemController");
 const userLoginController = require("../controllers/userLoginController");
 const loginController = require('../controllers/loginController');
+const checkoutController = require('../controllers/checkoutController');
 const { default: mongoose } = require('mongoose');
 
 /* GET home page. */
@@ -41,6 +42,8 @@ router.get("/login/:name/:password", loginController.try_login);
 router.get("/usernames", userLoginController.usersnames);
 
 router.post("/signup", userLoginController.userlogin);
+
+router.get("/checkout", checkoutController.confirmCheckout);
 
 router.post("/cart", userController.updateCart);
 

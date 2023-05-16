@@ -1,0 +1,38 @@
+h1 {
+    margin-left: 10vw;
+    text-align: center;
+}
+
+#small-letters {
+    font-size: 0.5vw;
+}
+
+.ckeckout-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2vw;
+    margin-left: 20vw;
+    margin-right: 40vw;
+}
+
+.nif {
+    margin-right: 5vw;
+}
+
+.payment {
+    margin-top: 1vw;
+}
+
+.submit_button {
+    margin-top: -5vw;
+    margin-right: 35vw;
+    position: fixed;
+    right: 0;
+}
+
+.total {
+    margin-right: 15vw;
+    position: fixed;
+    right: 0;
+    font-size: x-large;
+}
